@@ -1,25 +1,19 @@
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import TechnologySection from "@/components/TechnologySection";
-import StatsSection from "@/components/StatsSection";
-import ProjectGallery from "@/components/ProjectGallery";
-import ClientLogos from "@/components/ClientLogos";
-import SectorCards from "@/components/SectorCards";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
+import PatentHero from "@/components/PatentHero";
+import TechnologyShowcase from "@/components/TechnologyShowcase";
+import PatentBenefits from "@/components/PatentBenefits";
+import LicensingContact from "@/components/LicensingContact";
+import BrandFooter from "@/components/BrandFooter";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Navigation />
-      <HeroSection />
-      <TechnologySection />
-      <StatsSection />
-      <ProjectGallery />
-      <ClientLogos />
-      <SectorCards />
-      <ContactSection />
-      <Footer />
+      <BrandNavigation />
+      <PatentHero />
+      <TechnologyShowcase />
+      <PatentBenefits />
+      <LicensingContact />
+      <BrandFooter />
     </div>
   );
 }
