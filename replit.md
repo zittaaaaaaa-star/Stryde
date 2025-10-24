@@ -1,14 +1,15 @@
-# Harness we Technology - Energy Harvesting Patent Licensing Platform
+# Harness we Technology - Energy Harvesting Patent & Product Platform
 
 ## Overview
 
-This is a marketing website for Harness we Technology, a company that licenses energy harvesting patents in three core technologies: Piezoelectricity, Thermoelectricity, and REWOD (Reverse Electrowetting-on-Dielectric). The platform serves as a digital showcase for their patent portfolio and provides a contact interface for potential licensees to inquire about technology licensing opportunities.
+This is a marketing website for Harness we Technology, a company that licenses energy harvesting patents and sells energy-harvesting floor tiles based on three core technologies: Piezoelectricity, Thermoelectricity, and REWOD (Reverse Electrowetting-on-Dielectric). The platform serves as a digital showcase for their patent portfolio and floor tile products, providing contact interfaces for potential licensees and customers.
 
 The application is built as a full-stack monorepo with a React frontend and Express backend, designed for deployment on Replit's infrastructure.
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- Preferred communication style: Simple, everyday language
+- Design preference: Apple-inspired minimalist aesthetic with clean typography, generous white space, and refined color palette
 
 ## System Architecture
 
@@ -25,7 +26,7 @@ Preferred communication style: Simple, everyday language.
 - Tailwind CSS for styling with custom design tokens
 - Component library includes: forms, dialogs, cards, navigation, tabs, toasts
 - Custom theme system supporting light/dark modes via ThemeProvider context
-- Design follows "New York" variant with specific color palette for sustainability/energy tech branding
+- Apple-inspired minimalist design with clean typography and refined spacing
 
 **State Management**
 - TanStack Query (React Query) for server state management and API caching
@@ -34,10 +35,21 @@ Preferred communication style: Simple, everyday language.
 - Local component state using useState/useReducer hooks
 
 **Design System**
-- Custom color palette emphasizing sustainability: Deep Teal (primary), Electric Blue (secondary), Vibrant Green (accents)
-- Typography using Inter and Space Grotesk fonts
+- Apple-inspired minimalist color palette: Clean whites, subtle grays, refined blacks
+- Typography using -apple-system fonts with tight letter-spacing (-0.02em)
 - Responsive breakpoints: mobile-first approach with md/lg breakpoints
-- Spacing system based on Tailwind's 4px base unit
+- Generous spacing system emphasizing white space and visual breathing room
+- Larger border radius (12px) for modern, refined appearance
+- Subtle shadows and elevation for depth without distraction
+
+**Component Structure**
+- BrandNavigation: Fixed navigation with backdrop blur (Apple-style)
+- PatentHero: Large, clean hero section with bold typography
+- FloorTileProducts: Product showcase for energy-harvesting floor tiles
+- TechnologyShowcase: Minimalist technology feature sections
+- PatentBenefits: Clean grid layout for licensing benefits
+- LicensingContact: Contact form for inquiries
+- BrandFooter: Minimal footer with organized links
 
 ### Backend Architecture
 
@@ -57,13 +69,13 @@ Preferred communication style: Simple, everyday language.
 - In-memory storage implementation (MemStorage class)
 - Designed with storage interface (IStorage) for future database integration
 - Currently configured for PostgreSQL via Drizzle ORM but using memory storage in practice
-- UUID-based entity identification
+- Contact form data logged to console (no persistent storage)
 
 **API Design**
 - RESTful conventions with `/api` prefix for all backend routes
 - JSON request/response format
-- Credential-based authentication setup (session infrastructure via connect-pg-simple)
-- CRUD operations abstracted through storage interface
+- Contact inquiry validation using Zod schemas
+- Simple, stateless architecture for marketing website
 
 ### Build and Deployment
 
@@ -81,25 +93,18 @@ Preferred communication style: Simple, everyday language.
 
 **Deployment Configuration**
 - Designed for Replit hosting environment
-- Database migration support via `drizzle-kit push`
-- PostgreSQL connection via DATABASE_URL environment variable
-- Session store using connect-pg-simple (PostgreSQL session storage)
+- Database migration support via `drizzle-kit push` (if needed)
+- PostgreSQL connection via DATABASE_URL environment variable (optional)
+- Session store using connect-pg-simple (PostgreSQL session storage, optional)
 
 ## External Dependencies
-
-### Database
-- **PostgreSQL** (via @neondatabase/serverless)
-  - Configured through Drizzle ORM for schema management
-  - Connection pooling for serverless environments
-  - Migration support via drizzle-kit
-  - Currently not actively used (in-memory storage implementation)
 
 ### UI Component Libraries
 - **Radix UI**: Comprehensive primitive component library
   - Provides 25+ accessible, unstyled components (accordion, dialog, dropdown, etc.)
   - Handles keyboard navigation, focus management, ARIA attributes
 - **Tailwind CSS**: Utility-first CSS framework
-  - Custom configuration with design system tokens
+  - Custom configuration with Apple-inspired design system tokens
   - PostCSS processing pipeline
 - **Lucide React**: Icon library for consistent iconography
 
@@ -122,8 +127,18 @@ Preferred communication style: Simple, everyday language.
 - **date-fns**: Date manipulation and formatting
 - **clsx & tailwind-merge**: Conditional className composition
 - **class-variance-authority**: Type-safe component variant creation
-- **cmdk**: Command palette component primitives
-- **embla-carousel-react**: Carousel/slider functionality
 
 ### Third-Party Services
 None currently integrated. The contact form logs to console rather than sending emails or storing data persistently.
+
+## Product Offerings
+
+### Energy Harvesting Floor Tiles
+The company manufactures and sells four series of energy-harvesting floor tiles:
+
+1. **Commercial Series**: High-traffic tiles for retail, airports, and transit hubs
+2. **Residential Series**: Elegant tiles for homes, offices, and hotels
+3. **Industrial Series**: Heavy-duty tiles for warehouses and factories
+4. **Smart Building Series**: IoT-enabled tiles with real-time analytics
+
+All products leverage the company's patented Piezoelectric technology to convert kinetic energy from footsteps into electrical power.

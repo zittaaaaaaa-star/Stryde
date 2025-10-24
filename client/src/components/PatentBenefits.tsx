@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Rocket, Users, TrendingUp, Lightbulb, Globe } from "lucide-react";
 
@@ -7,92 +6,84 @@ export default function PatentBenefits() {
     {
       icon: Shield,
       title: "Protected Innovation",
-      description: "Gain exclusive rights to use cutting-edge technology with full patent protection and legal backing."
+      description: "Exclusive rights with full patent protection and legal backing."
     },
     {
       icon: Rocket,
       title: "Market Leadership",
-      description: "Position your company at the forefront of sustainable energy innovation with proven technology."
+      description: "Position your company at the forefront of sustainable energy."
     },
     {
       icon: Users,
       title: "Expert Support",
-      description: "Receive ongoing technical support and guidance from our team of energy harvesting specialists."
+      description: "Ongoing technical guidance from energy harvesting specialists."
     },
     {
       icon: TrendingUp,
       title: "Revenue Potential",
-      description: "Unlock new revenue streams by integrating our technology into your products and services."
+      description: "Unlock new revenue streams with proven technology."
     },
     {
       icon: Lightbulb,
-      title: "Proven Technology",
-      description: "License patents with validated performance metrics and real-world application success."
+      title: "Validated Performance",
+      description: "Patents with real-world application success metrics."
     },
     {
       icon: Globe,
-      title: "Global Reach",
-      description: "Expand into international markets with worldwide patent coverage and compliance support."
+      title: "Global Coverage",
+      description: "Worldwide patent coverage and compliance support."
     }
   ];
 
   return (
-    <section id="benefits" className="py-20">
+    <section id="benefits" className="py-32 bg-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <Badge variant="outline" className="mb-4" data-testid="badge-benefits-title">
-            Why License Our Patents
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <Badge variant="outline" className="mb-6" data-testid="badge-benefits-title">
+            Why License
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="heading-benefits">
-            Accelerate Your Innovation
+          <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-benefits">
+            Accelerate your innovation
           </h2>
-          <p className="text-lg text-muted-foreground" data-testid="text-benefits-description">
-            Partner with Harness we Technology to bring revolutionary energy harvesting solutions to market faster.
+          <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-benefits-description">
+            Partner with Harness we Technology to bring revolutionary energy harvesting 
+            solutions to market faster.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <Card key={index} className="hover-elevate" data-testid={`card-benefit-${index}`}>
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-start gap-4">
-                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
-                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div
+                key={index}
+                className="group"
+                data-testid={`card-benefit-${index}`}
+              >
+                <div className="h-12 w-12 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6 group-hover:bg-foreground/10 transition-colors">
+                  <Icon className="h-6 w-6 text-foreground" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+              </div>
             );
           })}
         </div>
 
-        <div className="mt-16 max-w-4xl mx-auto">
-          <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="pt-6">
-              <div className="text-center space-y-4">
-                <h3 className="text-2xl font-bold" data-testid="heading-licensing-options">
-                  Flexible Licensing Options
-                </h3>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  We offer customizable licensing agreements tailored to your business needs, 
-                  whether you're a startup seeking innovation or an established corporation 
-                  expanding your technology portfolio.
-                </p>
-                <div className="flex flex-wrap justify-center gap-3 pt-4">
-                  <Badge variant="secondary">Exclusive Licenses</Badge>
-                  <Badge variant="secondary">Non-Exclusive Licenses</Badge>
-                  <Badge variant="secondary">Regional Rights</Badge>
-                  <Badge variant="secondary">Custom Agreements</Badge>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="mt-24 max-w-4xl mx-auto bg-card rounded-3xl p-12 text-center border border-border">
+          <h3 className="text-3xl font-semibold mb-4" data-testid="heading-licensing-options">
+            Flexible Licensing Options
+          </h3>
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Customizable licensing agreements tailored to your business needs, from startups 
+            to established corporations.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Badge variant="secondary" className="px-4 py-2 text-sm">Exclusive Licenses</Badge>
+            <Badge variant="secondary" className="px-4 py-2 text-sm">Non-Exclusive Licenses</Badge>
+            <Badge variant="secondary" className="px-4 py-2 text-sm">Regional Rights</Badge>
+            <Badge variant="secondary" className="px-4 py-2 text-sm">Custom Agreements</Badge>
+          </div>
         </div>
       </div>
     </section>
