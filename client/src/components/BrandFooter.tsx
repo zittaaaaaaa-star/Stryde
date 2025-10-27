@@ -35,11 +35,6 @@ export default function BrandFooter() {
                 </a>
               </li>
               <li>
-                <a href="#technologies" className="hover:text-foreground transition-colors" data-testid="link-footer-thermo">
-                  
-                </a>
-              </li>
-              <li>
                 <a href="#technologies" className="hover:text-foreground transition-colors" data-testid="link-footer-rewod">
                   REWOD
                 </a>

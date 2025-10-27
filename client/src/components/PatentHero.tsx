@@ -27,7 +27,7 @@ export default function PatentHero() {
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal" data-testid="text-hero-description">
             Revolutionary energy harvesting patents transforming wasted energy into power through 
-            Piezoelectricity, Thermoelectricity, and REWOD technology.
+            Piezoelectricity and REWOD technology.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 pt-6">

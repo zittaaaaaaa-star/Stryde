@@ -16,18 +16,6 @@ export default function TechnologyShowcase() {
       ]
     },
     {
-      icon: TrendingUp,
-      name: "Thermoelectricity",
-      tagline: "Heat gradients into sustainable energy",
-      description: "Advanced thermoelectric technology that efficiently converts waste heat into electricity. By leveraging temperature differentials, this patent recovers energy that would otherwise be lost to the environment.",
-      applications: [
-        "Waste heat recovery",
-        "Automotive systems",
-        "Data center cooling",
-        "Building HVAC"
-      ]
-    },
-    {
       icon: Droplets,
       name: "REWOD Technology",
       tagline: "Liquid manipulation for power generation",
@@ -49,7 +37,7 @@ export default function TechnologyShowcase() {
             Patent Portfolio
           </Badge>
           <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-technologies">
-            Three revolutionary technologies
+            Two revolutionary technologies
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-technologies-description">
             Each patent represents breakthrough innovations in energy harvesting, 

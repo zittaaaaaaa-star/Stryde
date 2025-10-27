@@ -140,7 +140,6 @@ export default function LicensingContact() {
                               </FormControl>
                               <SelectContent>
                                 <SelectItem value="piezoelectricity">Piezoelectricity</SelectItem>
-                                <SelectItem value="thermoelectricity">Thermoelectricity</SelectItem>
                                 <SelectItem value="rewod">REWOD</SelectItem>
                                 <SelectItem value="all">All Technologies</SelectItem>
                               </SelectContent>
