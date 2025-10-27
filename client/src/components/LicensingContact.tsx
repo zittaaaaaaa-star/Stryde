@@ -193,11 +193,11 @@ export default function LicensingContact() {
                   <div>
                     <p className="font-medium mb-1">Email</p>
                     <a
-                      href="mailto:licensing@harnesswetech.com"
+                      href="mailto:contact@harness.com"
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       data-testid="link-email"
                     >
-                      licensing@harnesswetech.com
+                      contact@harness.com
                     </a>
                   </div>
                 </div>
@@ -209,11 +209,11 @@ export default function LicensingContact() {
                   <div>
                     <p className="font-medium mb-1">Phone</p>
                     <a
-                      href="tel:+1-555-0123"
+                      href="tel:+17182589283"
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       data-testid="link-phone"
                     >
-                      +1 (555) 012-3456
+                      +1 (718) 258-9283
                     </a>
                   </div>
                 </div>
@@ -225,9 +225,9 @@ export default function LicensingContact() {
                   <div>
                     <p className="font-medium mb-1">Address</p>
                     <p className="text-sm text-muted-foreground" data-testid="text-address">
-                      Innovation Center<br />
-                      123 Technology Drive<br />
-                      San Francisco, CA 94105
+                      Room 464<br />
+                      1600 Avenue L<br />
+                      Brooklyn, NY 11230
                     </p>
                   </div>
                 </div>

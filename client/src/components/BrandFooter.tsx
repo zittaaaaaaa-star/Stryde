@@ -36,7 +36,7 @@ export default function BrandFooter() {
               </li>
               <li>
                 <a href="#technologies" className="hover:text-foreground transition-colors" data-testid="link-footer-thermo">
-                  Thermoelectricity
+                  
                 </a>
               </li>
               <li>
@@ -82,10 +82,10 @@ export default function BrandFooter() {
 
         <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-            © {currentYear} Harness we Technology. All rights reserved.
+            © {currentYear} Harness. All rights reserved.
           </p>
           <p className="text-sm font-semibold text-foreground">
-            Harness we
+            Harness
           </p>
         </div>
       </div>

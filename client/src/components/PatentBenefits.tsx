@@ -72,17 +72,12 @@ export default function PatentBenefits() {
 
         <div className="mt-24 max-w-4xl mx-auto bg-card rounded-3xl p-12 text-center border border-border">
           <h3 className="text-3xl font-semibold mb-4" data-testid="heading-licensing-options">
-            Flexible Licensing Options
           </h3>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Customizable licensing agreements tailored to your business needs, from startups 
-            to established corporations.
+         
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Badge variant="secondary" className="px-4 py-2 text-sm">Exclusive Licenses</Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">Non-Exclusive Licenses</Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">Regional Rights</Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">Custom Agreements</Badge>
+
           </div>
         </div>
       </div>
