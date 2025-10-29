@@ -46,7 +46,7 @@ export default function PatentBenefits() {
             Accelerate your innovation
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-benefits-description">
-            Partner with Harness to bring revolutionary energy harvesting 
+            Partner with Stryde to bring revolutionary energy harvesting 
             solutions to market faster.
           </p>
         </div>
