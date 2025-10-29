@@ -10,7 +10,6 @@ export default function TechnologyShowcase() {
       description: "Our piezoelectric patent converts mechanical stress, vibrations, and pressure into usable electrical energy with unprecedented efficiency. This technology transforms everyday movements and forces into clean power.",
       applications: [
         "Smart flooring systems",
-        "Wearable devices",
         "Industrial machinery",
         "Infrastructure monitoring"
       ]
@@ -22,7 +21,7 @@ export default function TechnologyShowcase() {
       description: "Revolutionary Reverse Electrowetting on Dielectric technology that generates electrical power from fluid movement and surface interactions. A groundbreaking approach to energy harvesting through liquid dynamics.",
       applications: [
         "Microfluidic devices",
-        "Lab-on-chip systems",
+        "Lab on chip systems",
         "Rainwater capture",
         "Ocean energy"
       ]
@@ -34,7 +33,7 @@ export default function TechnologyShowcase() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <Badge variant="outline" className="mb-6" data-testid="badge-technologies-title">
-            Patent Portfolio
+            Technologies Portfolio
           </Badge>
           <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-technologies">
             Two revolutionary technologies

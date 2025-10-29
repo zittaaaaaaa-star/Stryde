@@ -26,7 +26,7 @@ export default function PatentBenefits() {
     {
       icon: Lightbulb,
       title: "Validated Performance",
-      description: "Patents with real-world application success metrics."
+      description: "Patents with real world application success metrics."
     },
     {
       icon: Globe,
@@ -46,7 +46,7 @@ export default function PatentBenefits() {
             Accelerate your innovation
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-benefits-description">
-            Partner with Harness we Technology to bring revolutionary energy harvesting 
+            Partner with Harness to bring revolutionary energy harvesting 
             solutions to market faster.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function PatentBenefits() {
           })}
         </div>
 
-        <div className="mt-24 max-w-4xl mx-auto bg-card rounded-3xl p-12 text-center border border-border">
+        <div className="">
           <h3 className="text-3xl font-semibold mb-4" data-testid="heading-licensing-options">
           </h3>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">

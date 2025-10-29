@@ -22,7 +22,7 @@ export default function PatentHero() {
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-none" data-testid="heading-hero">
             The future of energy
             <br />
-            <span className="text-muted-foreground">starts with every step.</span>
+            <span className="text-muted-foreground">starts with one step.</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal" data-testid="text-hero-description">
