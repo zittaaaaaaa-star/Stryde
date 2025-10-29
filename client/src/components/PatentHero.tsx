@@ -20,9 +20,9 @@ export default function PatentHero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-none" data-testid="heading-hero">
-            The future of energy
+            Stryde towards
             <br />
-            <span className="text-muted-foreground">starts with one step.</span>
+            <span className="text-muted-foreground">a cleaner tomorrow.</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-normal" data-testid="text-hero-description">

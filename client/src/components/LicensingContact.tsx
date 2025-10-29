@@ -196,7 +196,7 @@ export default function LicensingContact() {
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       data-testid="link-email"
                     >
-                      contact@harness.com
+                      contact@Stryde.com
                     </a>
                   </div>
                 </div>
