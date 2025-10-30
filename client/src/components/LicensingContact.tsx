@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,7 +49,7 @@ export default function LicensingContact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-6 border-primary/30">Contact</Badge>
+            <Badge variant="outline" className="mb-6">Contact</Badge>
             <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-contact">
               Get in touch
             </h2>
@@ -170,7 +171,7 @@ export default function LicensingContact() {
 
                       <Button
                         type="submit"
-                        className="w-full energy-gradient hover:opacity-90 transition-opacity"
+                        className="w-full"
                         size="lg"
                         disabled={isSubmitting}
                         data-testid="button-submit"
