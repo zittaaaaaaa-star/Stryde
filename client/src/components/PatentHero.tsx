@@ -36,7 +36,7 @@ export default function PatentHero() {
             STRYDE towards
             <br />
             <span className="text-muted-foreground">
-              a <span className="shiny-text">cleaner</span> tomorrow.
+              a <span className="">cleaner</span> tomorrow.
             </span>
           </h1>
 
