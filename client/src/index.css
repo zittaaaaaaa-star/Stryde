@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE - STRYDE Energy-inspired design */
+/* LIGHT MODE - STRYDE Solarpunk Energy Design */
 :root {
   --button-outline: rgba(0,0,0, .08);
   --badge-outline: rgba(0,0,0, .04);
@@ -15,67 +15,74 @@
   --elevate-1: rgba(0,0,0, .02);
   --elevate-2: rgba(0,0,0, .05);
 
-  --background: 0 0% 100%;
+  /* Solarpunk: Warm sunny background with subtle green tint */
+  --background: 45 80% 97%;
 
-  --foreground: 220 15% 15%;
+  --foreground: 155 30% 15%;
 
-  --border: 0 0% 90%;
+  --border: 120 20% 85%;
 
-  --card: 0 0% 99%;
+  /* Cards with light eco-friendly tint */
+  --card: 140 40% 98%;
 
-  --card-foreground: 220 15% 15%;
+  --card-foreground: 155 30% 15%;
 
-  --card-border: 0 0% 94%;
+  --card-border: 120 25% 90%;
 
-  --sidebar: 0 0% 97%;
+  --sidebar: 140 35% 96%;
 
-  --sidebar-foreground: 220 15% 15%;
+  --sidebar-foreground: 155 30% 15%;
 
-  --sidebar-border: 0 0% 92%;
+  --sidebar-border: 120 20% 88%;
 
-  --sidebar-primary: 220 15% 20%;
+  /* Vibrant green primary inspired by nature/energy */
+  --sidebar-primary: 145 65% 35%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 0 0% 93%;
+  --sidebar-accent: 120 30% 92%;
 
-  --sidebar-accent-foreground: 220 15% 15%;
+  --sidebar-accent-foreground: 155 30% 15%;
 
-  --sidebar-ring: 220 15% 20%;
+  --sidebar-ring: 145 65% 35%;
 
-  --popover: 0 0% 98%;
+  --popover: 140 35% 97%;
 
-  --popover-foreground: 220 15% 15%;
+  --popover-foreground: 155 30% 15%;
 
-  --popover-border: 0 0% 90%;
+  --popover-border: 120 20% 85%;
 
-  --primary: 220 15% 20%;
+  /* Energetic green for primary actions */
+  --primary: 145 65% 38%;
 
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 0 0% 95%;
+  /* Soft yellow-green secondary */
+  --secondary: 75 50% 90%;
 
-  --secondary-foreground: 220 15% 15%;
+  --secondary-foreground: 155 30% 15%;
 
-  --muted: 0 0% 96%;
+  /* Muted natural tones */
+  --muted: 120 25% 94%;
 
-  --muted-foreground: 0 0% 45%;
+  --muted-foreground: 155 15% 40%;
 
-  --accent: 220 15% 20%;
+  /* Accent with solar orange-yellow energy */
+  --accent: 35 90% 55%;
 
-  --accent-foreground: 0 0% 100%;
+  --accent-foreground: 155 30% 15%;
 
   --destructive: 0 72% 50%;
 
   --destructive-foreground: 0 0% 100%;
 
-  --input: 0 0% 85%;
-  --ring: 220 15% 20%;
-  --chart-1: 0 0% 20%;
-  --chart-2: 0 0% 30%;
-  --chart-3: 0 0% 40%;
-  --chart-4: 0 0% 50%;
-  --chart-5: 0 0% 60%;
+  --input: 120 20% 88%;
+  --ring: 145 65% 38%;
+  --chart-1: 145 65% 45%;
+  --chart-2: 75 60% 50%;
+  --chart-3: 35 85% 55%;
+  --chart-4: 195 70% 45%;
+  --chart-5: 280 50% 55%;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: "New York", Georgia, serif;
@@ -133,67 +140,73 @@
   --elevate-1: rgba(255,255,255, .03);
   --elevate-2: rgba(255,255,255, .07);
 
-  --background: 220 20% 8%;
+  /* Deep forest green-blue night background */
+  --background: 160 35% 8%;
 
-  --foreground: 0 0% 95%;
+  --foreground: 120 25% 92%;
 
-  --border: 220 15% 20%;
+  --border: 155 20% 22%;
 
-  --card: 220 18% 10%;
+  /* Slightly lighter cards with green tint */
+  --card: 155 30% 11%;
 
-  --card-foreground: 0 0% 95%;
+  --card-foreground: 120 25% 92%;
 
-  --card-border: 220 15% 18%;
+  --card-border: 155 25% 18%;
 
-  --sidebar: 220 18% 10%;
+  --sidebar: 155 30% 10%;
 
-  --sidebar-foreground: 0 0% 95%;
+  --sidebar-foreground: 120 25% 92%;
 
-  --sidebar-border: 220 15% 20%;
+  --sidebar-border: 155 20% 20%;
 
-  --sidebar-primary: 0 0% 95%;
+  /* Bright eco-green for primary */
+  --sidebar-primary: 145 70% 50%;
 
-  --sidebar-primary-foreground: 220 20% 8%;
+  --sidebar-primary-foreground: 160 35% 8%;
 
-  --sidebar-accent: 220 15% 18%;
+  --sidebar-accent: 155 25% 18%;
 
-  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-accent-foreground: 120 25% 92%;
 
-  --sidebar-ring: 0 0% 95%;
+  --sidebar-ring: 145 70% 50%;
 
-  --popover: 220 18% 12%;
+  --popover: 155 30% 12%;
 
-  --popover-foreground: 0 0% 95%;
+  --popover-foreground: 120 25% 92%;
 
-  --popover-border: 220 15% 22%;
+  --popover-border: 155 20% 24%;
 
-  --primary: 0 0% 95%;
+  /* Vibrant green primary */
+  --primary: 145 70% 50%;
 
-  --primary-foreground: 220 20% 8%;
+  --primary-foreground: 160 35% 8%;
 
-  --secondary: 220 15% 20%;
+  /* Deep teal secondary */
+  --secondary: 175 30% 20%;
 
-  --secondary-foreground: 0 0% 95%;
+  --secondary-foreground: 120 25% 92%;
 
-  --muted: 220 15% 18%;
+  --muted: 155 20% 18%;
 
-  --muted-foreground: 0 0% 65%;
+  --muted-foreground: 120 15% 65%;
 
-  --accent: 0 0% 95%;
+  /* Warm solar accent for dark mode */
+  --accent: 35 85% 60%;
 
-  --accent-foreground: 220 20% 8%;
+  --accent-foreground: 160 35% 8%;
 
   --destructive: 0 72% 50%;
 
   --destructive-foreground: 0 0% 100%;
 
-  --input: 220 15% 25%;
-  --ring: 0 0% 95%;
-  --chart-1: 0 0% 75%;
-  --chart-2: 0 0% 65%;
-  --chart-3: 0 0% 55%;
-  --chart-4: 0 0% 45%;
-  --chart-5: 0 0% 70%;
+  --input: 155 20% 25%;
+  --ring: 145 70% 50%;
+  --chart-1: 145 70% 55%;
+  --chart-2: 75 65% 55%;
+  --chart-3: 35 85% 60%;
+  --chart-4: 195 75% 50%;
+  --chart-5: 280 55% 60%;
 
   --shadow-2xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
   --shadow-xs: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
