@@ -18,7 +18,7 @@ export default function BrandNavigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <span className="text-xl font-semibold text-foreground" data-testid="text-brand-name">
-            Stryde
+            STRYDE
           </span>
 
           <div className="hidden md:flex items-center gap-8">

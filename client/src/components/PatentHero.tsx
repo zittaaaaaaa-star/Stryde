@@ -20,7 +20,7 @@ export default function PatentHero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-none" data-testid="heading-hero">
-            Stryde towards
+            STRYDE towards
             <br />
             <span className="text-muted-foreground">a cleaner tomorrow.</span>
           </h1>
