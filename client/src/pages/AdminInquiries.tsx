@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, Mail, Building2, Calendar, MessageSquare } from "lucide-react";
+import { RefreshCw, Mail, Building2, Calendar, MessageSquare, Ruler } from "lucide-react";
 
 interface SavedInquiry {
   id: string;
@@ -11,6 +11,7 @@ interface SavedInquiry {
   email: string;
   company: string;
   technology: string;
+  roomSize: string;
   message: string;
   submittedAt: string;
 }
@@ -89,10 +90,14 @@ export default function AdminInquiries() {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-6 text-sm text-muted-foreground flex-wrap">
                     <div className="flex items-center gap-2">
                       <Building2 className="h-4 w-4" />
                       <span>{inquiry.company}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Ruler className="h-4 w-4" />
+                      <span>{inquiry.roomSize}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4" />

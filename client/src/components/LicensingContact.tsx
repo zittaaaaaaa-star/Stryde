@@ -24,6 +24,7 @@ export default function LicensingContact() {
       email: "",
       company: "",
       technology: "all",
+      roomSize: "",
       message: "",
     },
   });
@@ -167,6 +168,24 @@ export default function LicensingContact() {
                                 <SelectItem value="all">All Technologies</SelectItem>
                               </SelectContent>
                             </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="roomSize"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Room Size (sq ft)</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="e.g., 500 sq ft"
+                                data-testid="input-room-size"
+                                {...field}
+                              />
+                            </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
