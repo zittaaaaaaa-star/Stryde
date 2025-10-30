@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE - Apple-inspired minimalist design */
+/* LIGHT MODE - STRYDE Energy-inspired design */
 :root {
   --button-outline: rgba(0,0,0, .08);
   --badge-outline: rgba(0,0,0, .04);
@@ -14,62 +14,66 @@
   --elevate-1: rgba(0,0,0, .02);
   --elevate-2: rgba(0,0,0, .05);
 
+  /* Energy gradient variables */
+  --energy-gradient: linear-gradient(135deg, hsl(200, 85%, 45%) 0%, hsl(150, 70%, 50%) 100%);
+  --power-glow: 0 0 20px hsla(150, 70%, 50%, 0.3);
+
   --background: 0 0% 100%;
 
-  --foreground: 0 0% 10%;
+  --foreground: 220 15% 15%;
 
   --border: 0 0% 90%;
 
   --card: 0 0% 99%;
 
-  --card-foreground: 0 0% 10%;
+  --card-foreground: 220 15% 15%;
 
   --card-border: 0 0% 94%;
 
   --sidebar: 0 0% 97%;
 
-  --sidebar-foreground: 0 0% 10%;
+  --sidebar-foreground: 220 15% 15%;
 
   --sidebar-border: 0 0% 92%;
 
-  --sidebar-primary: 0 0% 10%;
+  --sidebar-primary: 200 85% 45%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
   --sidebar-accent: 0 0% 93%;
 
-  --sidebar-accent-foreground: 0 0% 10%;
+  --sidebar-accent-foreground: 220 15% 15%;
 
-  --sidebar-ring: 0 0% 10%;
+  --sidebar-ring: 200 85% 45%;
 
   --popover: 0 0% 98%;
 
-  --popover-foreground: 0 0% 10%;
+  --popover-foreground: 220 15% 15%;
 
   --popover-border: 0 0% 90%;
 
-  --primary: 0 0% 10%;
+  --primary: 200 85% 45%;
 
   --primary-foreground: 0 0% 100%;
 
   --secondary: 0 0% 95%;
 
-  --secondary-foreground: 0 0% 10%;
+  --secondary-foreground: 220 15% 15%;
 
   --muted: 0 0% 96%;
 
   --muted-foreground: 0 0% 45%;
 
-  --accent: 0 0% 94%;
+  --accent: 150 70% 50%;
 
-  --accent-foreground: 0 0% 10%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 72% 50%;
 
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 85%;
-  --ring: 0 0% 10%;
+  --ring: 200 85% 45%;
   --chart-1: 0 0% 20%;
   --chart-2: 0 0% 30%;
   --chart-3: 0 0% 40%;
@@ -132,62 +136,66 @@
   --elevate-1: rgba(255,255,255, .03);
   --elevate-2: rgba(255,255,255, .07);
 
-  --background: 0 0% 7%;
+  /* Energy gradient variables */
+  --energy-gradient: linear-gradient(135deg, hsl(200, 75%, 55%) 0%, hsl(150, 65%, 55%) 100%);
+  --power-glow: 0 0 30px hsla(150, 65%, 55%, 0.4);
+
+  --background: 220 20% 8%;
 
   --foreground: 0 0% 95%;
 
-  --border: 0 0% 18%;
+  --border: 220 15% 20%;
 
-  --card: 0 0% 9%;
+  --card: 220 18% 10%;
 
   --card-foreground: 0 0% 95%;
 
-  --card-border: 0 0% 15%;
+  --card-border: 220 15% 18%;
 
-  --sidebar: 0 0% 10%;
+  --sidebar: 220 18% 10%;
 
   --sidebar-foreground: 0 0% 95%;
 
-  --sidebar-border: 0 0% 18%;
+  --sidebar-border: 220 15% 20%;
 
-  --sidebar-primary: 0 0% 95%;
+  --sidebar-primary: 200 75% 55%;
 
-  --sidebar-primary-foreground: 0 0% 10%;
+  --sidebar-primary-foreground: 220 20% 8%;
 
-  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent: 220 15% 18%;
 
   --sidebar-accent-foreground: 0 0% 95%;
 
-  --sidebar-ring: 0 0% 95%;
+  --sidebar-ring: 200 75% 55%;
 
-  --popover: 0 0% 11%;
+  --popover: 220 18% 12%;
 
   --popover-foreground: 0 0% 95%;
 
-  --popover-border: 0 0% 20%;
+  --popover-border: 220 15% 22%;
 
-  --primary: 0 0% 95%;
+  --primary: 200 75% 55%;
 
-  --primary-foreground: 0 0% 10%;
+  --primary-foreground: 220 20% 8%;
 
-  --secondary: 0 0% 18%;
+  --secondary: 220 15% 20%;
 
   --secondary-foreground: 0 0% 95%;
 
-  --muted: 0 0% 15%;
+  --muted: 220 15% 18%;
 
   --muted-foreground: 0 0% 65%;
 
-  --accent: 0 0% 18%;
+  --accent: 150 65% 55%;
 
-  --accent-foreground: 0 0% 95%;
+  --accent-foreground: 220 20% 8%;
 
   --destructive: 0 72% 50%;
 
   --destructive-foreground: 0 0% 100%;
 
-  --input: 0 0% 30%;
-  --ring: 0 0% 95%;
+  --input: 220 15% 25%;
+  --ring: 200 75% 55%;
   --chart-1: 0 0% 75%;
   --chart-2: 0 0% 65%;
   --chart-3: 0 0% 55%;
@@ -282,6 +290,37 @@
     content: attr(data-placeholder);
     color: hsl(var(--muted-foreground));
     pointer-events: none;
+  }
+
+  /* Energy-themed utilities */
+  .energy-gradient {
+    background: var(--energy-gradient);
+  }
+
+  .power-glow {
+    box-shadow: var(--power-glow);
+  }
+
+  .energy-text {
+    background: var(--energy-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes pulse-energy {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: var(--power-glow);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 30px hsla(150, 70%, 50%, 0.5);
+    }
+  }
+
+  .animate-pulse-energy {
+    animation: pulse-energy 3s ease-in-out infinite;
   }
 
   /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
