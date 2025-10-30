@@ -234,11 +234,11 @@ export default function LicensingContact() {
                   <div>
                     <p className="font-medium mb-1">Email</p>
                     <a
-                      href="mailto:contact@harness.com"
+                      href="mailto:stryde.ve@gmail.com"
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       data-testid="link-email"
                     >
-                      contact@Stryde.com
+                      stryde.ve@gmail.com
                     </a>
                   </div>
                 </div>
