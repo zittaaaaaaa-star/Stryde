@@ -31,17 +31,39 @@ export default function LicensingContact() {
   const onSubmit = async (data: ContactInquiry) => {
     setIsSubmitting(true);
     
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log("Contact inquiry:", data);
-    
-    toast({
-      title: "Inquiry Submitted",
-      description: "Thank you for your interest. Our team will contact you within 24 hours.",
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Inquiry Submitted",
+          description: "Thank you for your interest. Our team will contact you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: result.message || "Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Unable to submit your inquiry. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
