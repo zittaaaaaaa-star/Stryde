@@ -1,8 +1,8 @@
-# STRYDE - Energy Harvesting Patent Licensing Platform
+# STRYDE Energy Harvesting Platform
 
 ## Overview
 
-STRYDE is a marketing and lead generation website for licensing revolutionary energy harvesting technologies. The platform showcases two core patent technologies (Piezoelectricity and REWOD) and provides an interactive contact form for potential licensees to submit inquiries. The application features a modern, solarpunk-themed design that emphasizes sustainability and clean energy innovation.
+STRYDE is a marketing and lead generation platform for energy harvesting patent licensing. The application showcases two revolutionary technologies—Piezoelectricity and REWOD (Reverse Electrowetting on Dielectric)—and enables potential licensees to submit inquiries about commercial, residential, and industrial applications. The platform features a modern, solarpunk-inspired design with a focus on sustainable energy solutions.
 
 ## User Preferences
 
@@ -13,106 +13,114 @@ Preferred communication style: Simple, everyday language.
 ### Frontend Architecture
 
 **Technology Stack:**
-- React 18 with TypeScript for type-safe component development
+- React 18 with TypeScript
 - Vite as the build tool and development server
-- Wouter for lightweight client-side routing
+- Wouter for client-side routing
 - TanStack Query (React Query) for server state management
-- Tailwind CSS for utility-first styling with custom design tokens
+- Shadcn/ui component library with Radix UI primitives
+- Tailwind CSS for styling with custom solarpunk theme
 
-**UI Component System:**
-- Shadcn/ui component library (New York variant) providing a comprehensive set of Radix UI-based components
-- Custom theme system with light/dark mode support via ThemeProvider context
-- Solarpunk-inspired color scheme with warm, nature-focused design tokens
-- Responsive design patterns using Tailwind breakpoints
+**Design System:**
+- Custom "New York" style variant of Shadcn/ui components
+- Solarpunk-inspired color palette with warm, eco-friendly tones
+- Responsive design supporting mobile and desktop viewports
+- Theme provider supporting light and dark modes
+- Custom CSS variables for consistent color application
 
-**Page Structure:**
-- Single-page application with smooth scrolling sections
-- Home page containing hero, products, technologies, benefits, contact sections
-- Admin inquiries page for viewing submitted contact forms
-- 404 not found page for unmatched routes
+**Component Structure:**
+- Page components: `Home`, `AdminInquiries`, `NotFound`
+- Feature components: `PatentHero`, `FloorTileProducts`, `TechnologyShowcase`, `PatentBenefits`, `LicensingContact`, `BrandNavigation`, `BrandFooter`
+- Shared UI components from Shadcn/ui library
+- Form handling via React Hook Form with Zod validation
 
-**State Management:**
-- React Hook Form with Zod validation for form handling
-- Context API for theme management
-- TanStack Query for API data fetching and caching
+**Routing Strategy:**
+- Client-side routing with Wouter
+- Main route (`/`) displays the marketing homepage
+- Admin route (`/admin/inquiries`) for viewing submitted contact forms
+- 404 fallback for undefined routes
 
 ### Backend Architecture
 
-**Technology Stack:**
-- Express.js server with TypeScript
-- ESM module system throughout
-- In-memory storage implementation (MemStorage class)
+**Server Framework:**
+- Express.js running on Node.js
+- ESM module system
+- TypeScript for type safety
 
-**API Design:**
-- RESTful endpoints under `/api` prefix
-- POST `/api/contact` - Submit contact inquiry with validation
-- GET `/api/contact/inquiries` - Retrieve all inquiries (admin endpoint)
+**API Endpoints:**
+- `POST /api/contact` - Submit contact inquiry with validation
+- `GET /api/contact/inquiries` - Retrieve all submitted inquiries
 
-**Data Validation:**
-- Zod schemas shared between client and server via `@shared/schema.ts`
-- Runtime validation of contact form submissions
-- Type-safe data structures derived from Zod schemas
+**Development Setup:**
+- Vite middleware integration for HMR in development
+- Custom request/response logging middleware
+- Error handling middleware with status code normalization
 
-**Development vs Production:**
-- Vite middleware integration in development for HMR
-- Static file serving in production from built assets
-- Separate build processes for client (Vite) and server (esbuild)
+**Storage Layer:**
+- In-memory storage implementation (`MemStorage` class)
+- Interface-based design (`IStorage`) allowing for future database migration
+- Contact inquiries stored with auto-generated IDs and timestamps
+- User management scaffolding present but not actively used
 
-### Data Storage Solutions
+**Rationale:** The in-memory storage approach was chosen for rapid prototyping and simplicity. The interface-based design allows seamless migration to a database solution (likely PostgreSQL with Drizzle ORM based on configuration files) when persistence is required.
 
-**Current Implementation:**
-- In-memory storage using Map and Array data structures
-- IStorage interface defining CRUD operations
-- MemStorage class implementing user and contact inquiry storage
-- No database persistence (data lost on server restart)
+### Data Validation
 
-**Database Preparation:**
-- Drizzle ORM configured for PostgreSQL in `drizzle.config.ts`
-- Schema location specified at `./shared/schema.ts`
-- Migration output directory set to `./migrations`
-- Environment variable `DATABASE_URL` required for database connection
-- Neon serverless PostgreSQL driver included in dependencies
+**Shared Schema:**
+- Zod schemas defined in `shared/schema.ts` for type safety across frontend and backend
+- Contact inquiry validation ensures data quality before storage
+- Type inference from Zod schemas provides TypeScript types
 
-**Note:** The application is structured to support PostgreSQL through Drizzle ORM, but currently uses in-memory storage. Database integration can be added by implementing a PostgreSQL-backed storage class that implements the IStorage interface.
+**Contact Form Fields:**
+- Name (minimum 2 characters)
+- Email (validated email format)
+- Company (minimum 2 characters)
+- Technology interest (enum: piezoelectricity, thermoelectricity, rewod, all)
+- Room size (string field for flexible input)
+- Message (minimum 10 characters)
 
 ### External Dependencies
 
-**UI Framework Dependencies:**
-- @radix-ui/* - Accessible, unstyled component primitives (30+ components)
-- Tailwind CSS with PostCSS for styling pipeline
-- class-variance-authority and clsx for dynamic class composition
+**UI Component Libraries:**
+- Radix UI primitives for accessible, unstyled components
+- Shadcn/ui as the component system built on Radix
 - Lucide React for consistent iconography
+- Embla Carousel for product showcases
+- CMDK for command palette functionality
 
-**Form Handling:**
-- React Hook Form for performant form state management
+**Form Management:**
+- React Hook Form for performant form handling
 - @hookform/resolvers for Zod schema integration
-- Zod for schema validation and TypeScript type inference
-- drizzle-zod for ORM schema to Zod schema conversion
+- Zod for runtime validation and TypeScript type inference
 
-**Data Fetching:**
-- @tanstack/react-query for server state synchronization
-- Built-in fetch API for HTTP requests
+**Styling:**
+- Tailwind CSS for utility-first styling
+- PostCSS with Autoprefixer for vendor prefixing
+- Custom CSS variables for theme consistency
+- Class Variance Authority for component variant management
 
 **Development Tools:**
-- @replit/vite-plugin-runtime-error-modal for error overlay
-- @replit/vite-plugin-cartographer for code navigation
-- @replit/vite-plugin-dev-banner for development indicators
+- Vite plugins for Replit integration (error modal, cartographer, dev banner)
+- TSX for TypeScript execution in development
+- ESBuild for production bundling
 
-**Database (Configured but Not Active):**
-- @neondatabase/serverless for PostgreSQL connectivity
-- Drizzle ORM for type-safe database operations
-- drizzle-kit for schema migrations
+**Database (Configured but not actively used):**
+- Drizzle ORM configured for PostgreSQL
+- @neondatabase/serverless for Neon database connections
+- Drizzle Kit for schema migrations
+- Connection via DATABASE_URL environment variable
 
-**Build Tools:**
-- Vite for frontend bundling and development
-- esbuild for backend bundling
-- TypeScript compiler for type checking
-- tsx for running TypeScript in development
+**Rationale:** Drizzle was chosen for its TypeScript-first approach and lightweight footprint. The configuration exists to support future database migration, but the current implementation uses in-memory storage for simplicity.
 
-**Routing:**
-- wouter for lightweight client-side routing (SPA)
+**State Management:**
+- TanStack Query for server state caching and synchronization
+- React Context for theme management
+- Local component state for UI interactions
 
-**Additional Utilities:**
-- date-fns for date formatting and manipulation
-- nanoid for generating unique identifiers
-- embla-carousel-react for carousel components (if needed)
+**Fonts:**
+- Google Fonts: Inter and Space Grotesk for modern, clean typography
+
+**Potential Future Integrations:**
+- Email service for inquiry notifications (not currently implemented)
+- Payment processing for licensing fees (infrastructure not present)
+- Authentication system for admin panel (scaffolded but not active)
+- PostgreSQL database via Neon for persistent storage (configuration exists)

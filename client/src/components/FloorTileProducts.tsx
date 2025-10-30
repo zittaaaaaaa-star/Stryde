@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Layers, Footprints, Building2, Factory } from "lucide-react";
+import { Footprints, ShoppingCart } from "lucide-react";
 
 export default function FloorTileProducts() {
   const scrollToContact = () => {
@@ -10,63 +10,21 @@ export default function FloorTileProducts() {
     }
   };
 
-  const products = [
-    {
-      icon: Footprints,
-      name: "Energy Harvesting Shoe Soles",
-      description: "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
-      features: [
-        "Antimicrobial breathable mesh top layer",
-        "Graphene-infused PU foam for heat conduction",
-        "Hydrophobic coating - sweat resistant & easy to clean"
-      ],
-      applications: "Athletes • Daily Wear • Medical"
-    },
-    {
-      icon: Building2,
-      name: "Commercial Series",
-      description: "High-traffic energy harvesting floor tiles for retail spaces, airports, and transit hubs.",
-      features: [
-        "Up to 5W per square meter",
-        "500,000+ step durability",
-        "Seamless integration"
-      ],
-      applications: "Retail • Airports • Transit"
-    },
-    {
-      icon: Footprints,
-      name: "Residential Series",
-      description: "Elegant floor tiles that generate power from everyday movement in homes and offices.",
-      features: [
-        "Quiet operation",
-        "Premium finishes",
-        "Easy installation"
-      ],
-      applications: "Homes • Offices • Hotels"
-    },
-    {
-      icon: Factory,
-      name: "Industrial Series",
-      description: "Heavy-duty energy harvesting tiles designed for warehouses and manufacturing facilities.",
-      features: [
-        "Extreme durability",
-        "High load capacity",
-        "Weather resistant"
-      ],
-      applications: "Warehouses • Factories • Logistics"
-    },
-    {
-      icon: Layers,
-      name: "Smart Building Series",
-      description: "IoT-enabled floor tiles with real-time monitoring and analytics capabilities.",
-      features: [
-        "Real-time analytics",
-        "Wireless connectivity",
-        "Predictive maintenance"
-      ],
-      applications: "Smart Cities • Corporate • Research"
-    }
-  ];
+  const product = {
+    name: "Energy Harvesting Shoe Soles",
+    description: "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
+    features: [
+      "Antimicrobial breathable mesh top layer",
+      "Graphene-infused PU foam for heat conduction",
+      "Hydrophobic coating - sweat resistant & easy to clean"
+    ],
+    applications: "Athletes • Daily Wear • Medical"
+  };
+
+  const handleBuyClick = () => {
+    // TODO: Integrate with ve hub when ready
+    console.log("Buy button clicked - ve hub integration pending");
+  };
 
   return (
     <section id="products" className="py-32 bg-muted/20">
@@ -76,62 +34,63 @@ export default function FloorTileProducts() {
             Products
           </Badge>
           <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-products">
-            Energy Harvesting Products
+            Energy Harvesting Shoe Soles
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-products-description">
-            Transform every step into sustainable energy. Our patented products capture kinetic energy 
-            from footsteps and convert it into usable electricity.
+            Advanced shoe insoles that generate power from every step while providing exceptional comfort and durability.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto mb-16">
-          {products.map((product, index) => {
-            const Icon = product.icon;
-            return (
-              <div
-                key={index}
-                className="group bg-card rounded-2xl p-10 border border-border hover:shadow-lg transition-all duration-300"
-                data-testid={`card-product-${index}`}
-              >
-                <div className="flex flex-col gap-6">
-                  <div className="h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors">
-                    <Icon className="h-7 w-7 text-foreground" />
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-3">{product.name}</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      {product.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3">
-                    {product.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <div className="h-1.5 w-1.5 rounded-full bg-foreground" />
-                        <span className="text-sm text-foreground/80">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pt-4 border-t border-border/50">
-                    <p className="text-xs text-muted-foreground font-medium tracking-wide">
-                      {product.applications}
-                    </p>
-                  </div>
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="bg-card rounded-2xl p-12 border border-border">
+            <div className="flex flex-col gap-8">
+              <div className="flex items-start gap-6">
+                <div className="h-16 w-16 rounded-2xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
+                  <Footprints className="h-8 w-8 text-foreground" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-3xl font-semibold mb-3">{product.name}</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {product.description}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              <div className="space-y-4">
+                <h4 className="font-semibold text-lg">Key Features</h4>
+                {product.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                    <span className="text-foreground/80 leading-relaxed">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-6 border-t border-border/50">
+                <p className="text-sm text-muted-foreground font-medium tracking-wide mb-6">
+                  Applications: {product.applications}
+                </p>
+                <Button
+                  size="lg"
+                  onClick={handleBuyClick}
+                  data-testid="button-buy-shoe-soles"
+                  className="w-full sm:w-auto"
+                >
+                  <ShoppingCart className="mr-2 h-5 w-5" />
+                  Buy Now
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-3xl mx-auto bg-card rounded-3xl p-12 text-center border border-border">
           <h3 className="text-3xl font-semibold mb-4" data-testid="heading-custom-solutions">
-            Custom Solutions Available
+            Questions About Our Product?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Need a specialized solution? We offer custom floor tile designs tailored to your specific 
-            requirements, integrating our patented technologies with your unique specifications.
+            Have questions about sizing, bulk orders, or custom configurations? 
+            Our team is ready to help you find the perfect energy harvesting solution.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
@@ -139,15 +98,7 @@ export default function FloorTileProducts() {
               onClick={scrollToContact}
               data-testid="button-contact-sales"
             >
-              Contact Sales
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={scrollToContact}
-              data-testid="button-request-demo"
-            >
-              Request Demo
+              Contact Us
             </Button>
           </div>
         </div>
