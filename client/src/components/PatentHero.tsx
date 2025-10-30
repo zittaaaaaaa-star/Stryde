@@ -10,11 +10,9 @@ export default function PatentHero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-amber-50 dark:from-emerald-950 dark:via-teal-950 dark:to-amber-950">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-emerald-500/10 animate-pulse-energy" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,255,150,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,200,100,0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 animate-pulse-energy" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
