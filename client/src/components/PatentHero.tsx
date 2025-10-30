@@ -35,7 +35,9 @@ export default function PatentHero() {
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-none" data-testid="heading-hero">
             STRYDE towards
             <br />
-            <span className="text-muted-foreground">a cleaner tomorrow.</span>
+            <span className="text-muted-foreground">
+              a <span className="shiny-text">cleaner</span> tomorrow.
+            </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed font-normal" data-testid="text-hero-description">
