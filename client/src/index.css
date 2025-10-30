@@ -307,7 +307,7 @@
       90deg,
       transparent 0%,
       rgba(255, 255, 255, 0) 20%,
-      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0.9) 50%,
       rgba(255, 255, 255, 0) 80%,
       transparent 100%
     );
@@ -324,8 +324,8 @@
     height: 0;
     background: radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 223, 0, 0.6) 30%,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.7) 30%,
       transparent 70%
     );
     animation: sparkle-burst 2s ease-out;
@@ -337,10 +337,10 @@
       filter: brightness(1) drop-shadow(0 0 0 transparent);
     }
     30% {
-      filter: brightness(1.3) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+      filter: brightness(1.3) drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
     }
     60% {
-      filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 223, 0, 0.8));
+      filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
     }
     100% {
       filter: brightness(1) drop-shadow(0 0 0 transparent);
