@@ -5,6 +5,7 @@ export const contactInquirySchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   company: z.string().min(2, "Company name must be at least 2 characters"),
   technology: z.enum(["piezoelectricity", "thermoelectricity", "rewod", "all"]),
+  roomSize: z.string().min(1, "Please specify your room size"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 

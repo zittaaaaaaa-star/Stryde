@@ -12,6 +12,17 @@ export default function FloorTileProducts() {
 
   const products = [
     {
+      icon: Footprints,
+      name: "Energy Harvesting Shoe Soles",
+      description: "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
+      features: [
+        "Antimicrobial breathable mesh top layer",
+        "Graphene-infused PU foam for heat conduction",
+        "Hydrophobic coating - sweat resistant & easy to clean"
+      ],
+      applications: "Athletes • Daily Wear • Medical"
+    },
+    {
       icon: Building2,
       name: "Commercial Series",
       description: "High-traffic energy harvesting floor tiles for retail spaces, airports, and transit hubs.",
@@ -65,10 +76,10 @@ export default function FloorTileProducts() {
             Products
           </Badge>
           <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-products">
-            Energy Harvesting Floor Tiles
+            Energy Harvesting Products
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-products-description">
-            Transform every step into sustainable energy. Our patented floor tiles capture kinetic energy 
+            Transform every step into sustainable energy. Our patented products capture kinetic energy 
             from footsteps and convert it into usable electricity.
           </p>
         </div>
