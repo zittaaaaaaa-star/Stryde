@@ -23,12 +23,12 @@ export default function Products() {
       description: "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
       dimensions: "10 inches × 10 inches, Hexagonal",
       features: [
-        "Top Plate: Recycled PVC sheet 12×12 (ex. Vinyl flooring) - Durable foot surface",
-        "Layering: EVA or neoprene foam pad 12×12 - Cushioning and energy transfer layer",
-        "Base Plate: Aluminum sheet 12×12 - Support and holds electrodes",
-        "Springs: 4 medium-tension compression springs - Adds mechanical return force",
-        "Rubber Gaskets: Seals the liquid microcell - Prevents leaks from the REWOD",
-        "Fasteners: Bolts, Nuts, Spacers - Holds layers together securely while allowing small vertical motion"
+        "Recycled PVC Top Plate - Durable, eco-friendly surface repurposed from vinyl flooring; resists wear and provides stable foot traction.",
+        "EVA / Neoprene Foam Layer - High-resilience cushioning for shock absorption and smooth energy transfer.",
+        "Aluminum Base Plate - Lightweight structural backbone that anchors components and houses the electrode array.",
+        "Tension Compression Springs - Adds mechanical return force, enhancing tactile feedback and motion responsiveness.",
+        "Rubber Gasket System - Fully seals the liquid microcell chamber, preventing leaks and maintaining pressure consistency",
+        "Precision Fastener Assembly - Rigid yet flexible connection allowing controlled vertical movement between layers."
       ],
       applications: "Smart Buildings • Public Spaces • High Traffic Areas"
     },
