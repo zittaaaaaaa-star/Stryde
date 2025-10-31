@@ -84,9 +84,7 @@ export default function Products() {
 
                 {product.features && (
                   <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">
-                      {product.id === 'floor-tiles' ? 'Mechanical & Structural Components' : 'Key Features'}
-                    </h4>
+                    <h4 className="font-semibold text-lg">Key Features</h4>
                     {product.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3" data-testid={`feature-${product.id}-${idx}`}>
                         <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
