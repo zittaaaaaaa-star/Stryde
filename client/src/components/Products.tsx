@@ -22,37 +22,13 @@ export default function Products() {
       icon: Grid3x3,
       description: "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
       dimensions: "10 inches × 10 inches, Hexagonal",
-      mechanicalStructure: [
-        {
-          component: "Top Plate",
-          specs: "Recycled PVC sheet 12×12 (ex. Vinyl flooring)",
-          purpose: "Durable foot surface"
-        },
-        {
-          component: "Layering",
-          specs: "EVA or neoprene foam pad 12×12",
-          purpose: "Cushioning and energy transfer layer"
-        },
-        {
-          component: "Base Plate",
-          specs: "Aluminum sheet 12×12",
-          purpose: "Support and holds electrodes"
-        },
-        {
-          component: "Springs",
-          specs: "4 medium-tension compression springs",
-          purpose: "Adds mechanical return force"
-        },
-        {
-          component: "Rubber Gaskets",
-          specs: "Seals the liquid microcell",
-          purpose: "Prevents leaks from the REWOD"
-        },
-        {
-          component: "Fasteners",
-          specs: "Bolts, Nuts, Spacers",
-          purpose: "Holds layers together securely while allowing small vertical motion"
-        }
+      features: [
+        "Top Plate: Recycled PVC sheet 12×12 (ex. Vinyl flooring) - Durable foot surface",
+        "Layering: EVA or neoprene foam pad 12×12 - Cushioning and energy transfer layer",
+        "Base Plate: Aluminum sheet 12×12 - Support and holds electrodes",
+        "Springs: 4 medium-tension compression springs - Adds mechanical return force",
+        "Rubber Gaskets: Seals the liquid microcell - Prevents leaks from the REWOD",
+        "Fasteners: Bolts, Nuts, Spacers - Holds layers together securely while allowing small vertical motion"
       ],
       applications: "Smart Buildings • Public Spaces • High Traffic Areas"
     },
@@ -106,38 +82,15 @@ export default function Products() {
                   </div>
                 </div>
 
-                {'mechanicalStructure' in product && product.mechanicalStructure && (
-                  <div className="space-y-6">
-                    <h4 className="font-semibold text-lg">Mechanical & Structural Components</h4>
-                    <div className="grid gap-4">
-                      {product.mechanicalStructure.map((item, idx) => (
-                        <div key={idx} className="bg-muted/20 rounded-lg p-4 border border-border/50">
-                          <div className="flex flex-col sm:flex-row sm:items-start gap-3">
-                            <div className="flex-1">
-                              <h5 className="font-semibold text-foreground mb-1">
-                                {item.component}
-                              </h5>
-                              <p className="text-sm text-muted-foreground mb-2">
-                                {item.specs}
-                              </p>
-                              <p className="text-xs text-foreground/60 italic">
-                                {item.purpose}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {'features' in product && product.features && (
+                {product.features && (
                   <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Key Features</h4>
+                    <h4 className="font-semibold text-lg">
+                      {product.id === 'floor-tiles' ? 'Mechanical & Structural Components' : 'Key Features'}
+                    </h4>
                     {product.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
+                      <div key={idx} className="flex items-start gap-3" data-testid={`feature-${product.id}-${idx}`}>
                         <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                        <span className="text-foreground/80 leading-relaxed">{feature}</span>
+                        <span className="text-foreground/80 leading-relaxed" data-testid={`text-feature-${product.id}-${idx}`}>{feature}</span>
                       </div>
                     ))}
                   </div>
