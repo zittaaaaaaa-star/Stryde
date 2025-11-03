@@ -59,7 +59,7 @@ export default function LicensingContact() {
     } catch (error) {
       toast({
         title: "Submission Failed",
-        description: "Unable to submit your inquiry. Please try again.",
+        description: "Unable to submit your inquiry. Please email us for assistance.",
         variant: "destructive",
       });
     } finally {
