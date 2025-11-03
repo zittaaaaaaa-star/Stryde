@@ -41,7 +41,7 @@ export default function PatentHero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed font-normal" data-testid="text-hero-description">
-            STRYDE: Revolutionary energy harvesting patents transforming wasted energy into power through Piezoelectricity and REWOD technology.
+            STRYDE develops cutting-edge energy harvesting solutions powered by proprietary Piezoelectric and REWOD technologies.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
