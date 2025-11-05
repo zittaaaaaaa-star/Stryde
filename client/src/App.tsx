@@ -7,11 +7,13 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
 import AdminInquiries from "@/pages/AdminInquiries";
+import PavegenDemo from "@/pages/PavegenDemo";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/pavegen" component={PavegenDemo} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route component={NotFound} />
     </Switch>
