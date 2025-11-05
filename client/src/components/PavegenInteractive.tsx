@@ -93,7 +93,7 @@ export default function PavegenInteractive() {
                     
                     <polygon
                       points="100,30 160,70 160,140 100,180 40,140 40,70"
-                      fill="transparent"
+                      fill="hsl(var(--card))"
                       stroke="hsl(var(--border))"
                       strokeWidth="2"
                     />
