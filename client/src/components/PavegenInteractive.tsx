@@ -48,35 +48,31 @@ export default function PavegenInteractive() {
       id: pulseIdCounter,
     };
 
-    setTileToBoltPulses((prev: TileToBoltPulse[]) => [...prev, tileToBoltPulse]);
-    setPulseIdCounter((prev: number) => prev + 1);
+    setTileToBoltPulses([tileToBoltPulse]);
+    setPulseIdCounter(pulseIdCounter + 1);
 
     setTimeout(() => {
-      setTileToBoltPulses((prev: TileToBoltPulse[]) => 
-        prev.filter((p: TileToBoltPulse) => p.id !== tileToBoltPulse.id)
-      );
+      setTileToBoltPulses([]);
       
       setBoltActive(true);
       setTimeout(() => setBoltActive(false), 800);
 
-      features.forEach((_, index) => {
-        const boltToFeaturePulse: BoltToFeaturePulse = {
-          id: pulseIdCounter + 1 + index,
-          targetIndex: index,
-        };
+      const newPulses: BoltToFeaturePulse[] = features.map((_, index) => ({
+        id: pulseIdCounter + 1 + index,
+        targetIndex: index,
+      }));
+
+      newPulses.forEach((pulse, index) => {
+        setTimeout(() => {
+          setBoltToFeaturePulses((prev) => [...prev, pulse]);
+        }, index * 150);
 
         setTimeout(() => {
-          setBoltToFeaturePulses((prev: BoltToFeaturePulse[]) => [...prev, boltToFeaturePulse]);
-        }, index * 120);
-
-        setTimeout(() => {
-          setBoltToFeaturePulses((prev: BoltToFeaturePulse[]) => 
-            prev.filter((p: BoltToFeaturePulse) => p.id !== boltToFeaturePulse.id)
-          );
-        }, 1000 + index * 120);
+          setBoltToFeaturePulses((prev) => prev.filter((p) => p.id !== pulse.id));
+        }, 1200 + index * 150);
       });
 
-      setPulseIdCounter((prev: number) => prev + features.length + 1);
+      setPulseIdCounter(pulseIdCounter + features.length + 1);
     }, 800);
   };
 
@@ -99,7 +95,7 @@ export default function PavegenInteractive() {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[auto_1fr_auto] gap-8 lg:gap-12 items-center justify-items-center">
+          <div className="grid lg:grid-cols-[auto_1fr_auto] gap-8 lg:gap-16 items-center justify-items-center">
             <div className="relative group" data-testid="tile-interactive">
               <button
                 onClick={handleTileClick}
@@ -111,116 +107,102 @@ export default function PavegenInteractive() {
                 }`}
                 data-testid="button-tile"
               >
-                <div className="w-48 h-48 md:w-64 md:h-64 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-lg shadow-2xl transform -skew-y-3 border-2 border-primary/30" />
-                  
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="absolute top-4 left-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
-                    <div className="absolute top-4 right-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
-                    <div className="absolute bottom-4 left-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
-                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                <div className="w-56 h-64 md:w-72 md:h-80 relative flex items-center justify-center">
+                  <svg viewBox="0 0 200 230" className="w-full h-full drop-shadow-2xl">
+                    <defs>
+                      <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{ stopColor: 'hsl(var(--card))', stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: 'hsl(var(--muted))', stopOpacity: 1 }} />
+                      </linearGradient>
+                    </defs>
                     
-                    <svg className="w-16 h-16 text-primary/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 2L2 12h3v8h14v-8h3L12 2z" />
-                      <path d="M8 12h8M12 8v8" />
-                    </svg>
-                  </div>
+                    <polygon
+                      points="100,10 170,50 170,130 100,170 30,130 30,50"
+                      fill="url(#hexGrad)"
+                      stroke="hsl(var(--primary))"
+                      strokeWidth="3"
+                      className="transition-all duration-200"
+                      style={{
+                        filter: isPressed ? 'drop-shadow(0 0 20px hsl(var(--primary) / 0.6))' : 'none'
+                      }}
+                    />
+                    
+                    <circle cx="50" cy="60" r="5" fill="hsl(var(--primary) / 0.6)" className="shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <circle cx="150" cy="60" r="5" fill="hsl(var(--primary) / 0.6)" className="shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <circle cx="170" cy="90" r="5" fill="hsl(var(--primary) / 0.6)" className="shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <circle cx="150" cy="120" r="5" fill="hsl(var(--primary) / 0.6)" className="shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <circle cx="50" cy="120" r="5" fill="hsl(var(--primary) / 0.6)" className="shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <circle cx="30" cy="90" r="5" fill="hsl(var(--primary) / 0.6)" className="shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    
+                    <g transform="translate(100, 90)">
+                      <path d="M0,-20 L-10,0 L-5,0 L-5,15 L5,15 L5,0 L10,0 Z" fill="hsl(var(--primary) / 0.4)" />
+                      <line x1="-12" y1="0" x2="12" y2="0" stroke="hsl(var(--primary) / 0.4)" strokeWidth="2" />
+                      <line x1="0" y1="-10" x2="0" y2="15" stroke="hsl(var(--primary) / 0.4)" strokeWidth="2" />
+                    </g>
+
+                    {isPressed && (
+                      <polygon
+                        points="100,10 170,50 170,130 100,170 30,130 30,50"
+                        fill="hsl(var(--primary) / 0.3)"
+                        className="animate-ping"
+                      />
+                    )}
+                  </svg>
 
                   {isPressed && (
-                    <>
-                      <div className="absolute inset-0 bg-primary/30 rounded-lg animate-ping" />
-                      <div className="absolute inset-0 bg-primary/10 rounded-lg" />
-                    </>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-40 h-40 bg-primary/20 rounded-full animate-ping" />
+                    </div>
                   )}
                 </div>
 
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-card/90 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30 whitespace-nowrap shadow-lg">
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-card/90 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30 whitespace-nowrap shadow-lg">
                   <span className="text-foreground text-sm font-medium">Click to jump</span>
                 </div>
               </button>
             </div>
 
-            <div className="relative flex items-center justify-center w-full h-48 lg:h-64">
+            <div className="relative flex items-center justify-center w-full min-h-[16rem]">
               <svg 
                 className="absolute inset-0 w-full h-full" 
-                viewBox="0 0 500 250" 
-                preserveAspectRatio="none"
-                style={{ overflow: 'visible' }}
+                viewBox="0 0 500 300" 
+                preserveAspectRatio="xMidYMid meet"
               >
-                <path
-                  d="M 50 125 Q 150 125 250 125"
-                  stroke="hsl(var(--primary) / 0.3)"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="5,5"
-                />
+                <defs>
+                  <linearGradient id="pulseGrad">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+                    <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
+                  </linearGradient>
+                </defs>
+
+                <line x1="60" y1="150" x2="250" y2="150" stroke="hsl(var(--primary) / 0.3)" strokeWidth="2" />
                 
-                {tileToBoltPulses.map((pulse: TileToBoltPulse) => (
+                {tileToBoltPulses.map((pulse) => (
                   <g key={`tile-bolt-${pulse.id}`}>
-                    <circle
-                      r="8"
-                      fill="url(#tilePulseGradient)"
-                      filter="url(#glowStrong)"
-                    >
-                      <animateMotion
-                        dur="0.8s"
-                        repeatCount="1"
-                        path="M 50 125 Q 150 125 250 125"
-                      />
-                    </circle>
-                    <circle
-                      r="16"
-                      fill="url(#tilePulseGradientOuter)"
-                      opacity="0.4"
-                    >
-                      <animateMotion
-                        dur="0.8s"
-                        repeatCount="1"
-                        path="M 50 125 Q 150 125 250 125"
-                      />
+                    <circle cx="60" cy="150" r="0" fill="url(#pulseGrad)" filter="url(#glow)">
+                      <animate attributeName="cx" from="60" to="250" dur="0.8s" />
+                      <animate attributeName="r" values="0;10;8" dur="0.8s" />
+                      <animate attributeName="opacity" from="1" to="0" dur="0.8s" />
                     </circle>
                   </g>
                 ))}
 
                 {features.map((_, index) => {
-                  const startY = 125;
-                  const endY = 60 + (index * 40);
+                  const endY = 80 + (index * 48);
                   
                   return (
-                    <g key={`path-${index}`}>
-                      <path
-                        d={`M 250 ${startY} Q 350 ${(startY + endY) / 2} 450 ${endY}`}
-                        stroke="hsl(var(--primary) / 0.3)"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="5,5"
-                      />
+                    <g key={`line-${index}`}>
+                      <line x1="250" y1="150" x2="440" y2={endY} stroke="hsl(var(--primary) / 0.3)" strokeWidth="2" />
                       
                       {boltToFeaturePulses
-                        .filter((pulse: BoltToFeaturePulse) => pulse.targetIndex === index)
-                        .map((pulse: BoltToFeaturePulse) => (
+                        .filter((pulse) => pulse.targetIndex === index)
+                        .map((pulse) => (
                           <g key={pulse.id}>
-                            <circle
-                              r="7"
-                              fill="url(#featurePulseGradient)"
-                              filter="url(#glow)"
-                            >
-                              <animateMotion
-                                dur="1s"
-                                repeatCount="1"
-                                path={`M 250 ${startY} Q 350 ${(startY + endY) / 2} 450 ${endY}`}
-                              />
-                            </circle>
-                            <circle
-                              r="14"
-                              fill="url(#featurePulseGradientOuter)"
-                              opacity="0.3"
-                            >
-                              <animateMotion
-                                dur="1s"
-                                repeatCount="1"
-                                path={`M 250 ${startY} Q 350 ${(startY + endY) / 2} 450 ${endY}`}
-                              />
+                            <circle cx="250" cy="150" r="0" fill="url(#pulseGrad)" filter="url(#glow)">
+                              <animate attributeName="cx" from="250" to="440" dur="1s" />
+                              <animate attributeName="cy" from="150" to={endY} dur="1s" />
+                              <animate attributeName="r" values="0;8;7" dur="1s" />
+                              <animate attributeName="opacity" from="1" to="0" dur="1s" />
                             </circle>
                           </g>
                         ))}
@@ -229,31 +211,8 @@ export default function PavegenInteractive() {
                 })}
 
                 <defs>
-                  <radialGradient id="tilePulseGradient">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
-                    <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
-                  </radialGradient>
-                  <radialGradient id="tilePulseGradientOuter">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-                  </radialGradient>
-                  <radialGradient id="featurePulseGradient">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
-                    <stop offset="100%" stopColor="hsl(var(--primary) / 0.7)" stopOpacity="0.7" />
-                  </radialGradient>
-                  <radialGradient id="featurePulseGradientOuter">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-                  </radialGradient>
                   <filter id="glow">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                  <filter id="glowStrong">
-                    <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                     <feMerge>
                       <feMergeNode in="coloredBlur"/>
                       <feMergeNode in="SourceGraphic"/>
@@ -270,7 +229,7 @@ export default function PavegenInteractive() {
               >
                 <Zap className="w-20 h-20 md:w-28 md:h-28 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" strokeWidth={2.5} />
                 {boltActive && (
-                  <div className="absolute inset-0 bg-primary/40 rounded-2xl animate-ping" />
+                  <div className="absolute inset-0 bg-white/30 rounded-2xl animate-ping" />
                 )}
               </div>
             </div>
@@ -278,7 +237,7 @@ export default function PavegenInteractive() {
             <div className="flex flex-col gap-4 w-full max-w-sm">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
-                const hasActivePulse = boltToFeaturePulses.some((p: BoltToFeaturePulse) => p.targetIndex === index);
+                const hasActivePulse = boltToFeaturePulses.some((p) => p.targetIndex === index);
                 
                 return (
                   <div
