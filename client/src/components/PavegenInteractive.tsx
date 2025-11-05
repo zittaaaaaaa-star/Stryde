@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Zap, Users, GraduationCap, BarChart3 } from "lucide-react";
 
 export default function PavegenInteractive() {
-  const [animationPhase, setAnimationPhase] = useState<'idle' | 'tile-to-bolt' | 'bolt-active' | 'bolt-to-features'>('idle');
-  const [isPressed, setIsPressed] = useState(false);
-  const [activeFeatures, setActiveFeatures] = useState<number[]>([]);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [boltActive, setBoltActive] = useState(false);
+  const [activeFeatures, setActiveFeatures] = useState<Set<number>>(new Set());
 
   const features = [
     {
@@ -29,44 +29,41 @@ export default function PavegenInteractive() {
     }
   ];
 
-  const handleTileClick = () => {
-    if (animationPhase !== 'idle') return;
+  const handleClick = () => {
+    if (isAnimating) return;
     
-    setIsPressed(true);
-    setTimeout(() => setIsPressed(false), 200);
-    setAnimationPhase('tile-to-bolt');
+    setIsAnimating(true);
+    setActiveFeatures(new Set());
 
     setTimeout(() => {
-      setAnimationPhase('bolt-active');
+      setBoltActive(true);
       
       setTimeout(() => {
-        setAnimationPhase('bolt-to-features');
-        
         features.forEach((_, index) => {
           setTimeout(() => {
-            setActiveFeatures(prev => [...prev, index]);
-          }, index * 200 + 800);
+            setActiveFeatures(prev => new Set([...prev, index]));
+          }, index * 150);
         });
 
         setTimeout(() => {
-          setAnimationPhase('idle');
-          setActiveFeatures([]);
-        }, 3000);
-      }, 800);
-    }, 900);
+          setIsAnimating(false);
+          setBoltActive(false);
+          setActiveFeatures(new Set());
+        }, 2500);
+      }, 600);
+    }, 800);
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-[#0a1628] via-[#0d1f2d] to-[#0f2e1f] overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(34,197,94,0.08),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(56,189,248,0.06),transparent_50%)]" />
+    <section className="relative py-32 bg-black overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(34,197,94,0.05),transparent_50%)]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
             Engage with the power of footsteps
           </h2>
-          <p className="text-lg md:text-xl text-blue-200/90 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
             Pavegen smart tiles convert human footsteps into electricity. Harness that energy to{" "}
             <span className="text-emerald-400 font-medium">capture attention</span>,{" "}
             <span className="text-emerald-400 font-medium">drive footfall</span> and{" "}
@@ -74,210 +71,316 @@ export default function PavegenInteractive() {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[300px_1fr_400px] gap-8 lg:gap-12 items-center justify-items-center relative">
-            <div className="relative group" data-testid="tile-interactive">
-              <button
-                onClick={handleTileClick}
-                onMouseDown={() => setIsPressed(true)}
-                onMouseUp={() => setIsPressed(false)}
-                onMouseLeave={() => setIsPressed(false)}
-                className={`relative transition-all duration-200 ${
-                  isPressed ? 'scale-95' : 'scale-100 hover:scale-105'
-                }`}
-                data-testid="button-tile"
-              >
-                <div className="w-56 h-64 md:w-64 md:h-72 relative flex items-center justify-center">
-                  <svg viewBox="0 0 200 230" className="w-full h-full drop-shadow-2xl">
-                    <defs>
-                      <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style={{ stopColor: '#374151', stopOpacity: 1 }} />
-                        <stop offset="100%" style={{ stopColor: '#1f2937', stopOpacity: 1 }} />
-                      </linearGradient>
-                    </defs>
-                    
-                    <polygon
-                      points="100,10 170,50 170,130 100,170 30,130 30,50"
-                      fill="url(#hexGrad)"
-                      stroke="#22c55e"
-                      strokeWidth="3"
-                      style={{
-                        filter: isPressed ? 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.6))' : 'none'
-                      }}
-                    />
-                    
-                    <circle cx="50" cy="60" r="5" fill="rgba(34, 197, 94, 0.6)" />
-                    <circle cx="150" cy="60" r="5" fill="rgba(34, 197, 94, 0.6)" />
-                    <circle cx="170" cy="90" r="5" fill="rgba(34, 197, 94, 0.6)" />
-                    <circle cx="150" cy="120" r="5" fill="rgba(34, 197, 94, 0.6)" />
-                    <circle cx="50" cy="120" r="5" fill="rgba(34, 197, 94, 0.6)" />
-                    <circle cx="30" cy="90" r="5" fill="rgba(34, 197, 94, 0.6)" />
-                    
-                    <g transform="translate(100, 90)">
-                      <path d="M0,-20 L-10,0 L-5,0 L-5,15 L5,15 L5,0 L10,0 Z" fill="rgba(34, 197, 94, 0.4)" />
-                      <line x1="-12" y1="0" x2="12" y2="0" stroke="rgba(34, 197, 94, 0.4)" strokeWidth="2" />
-                      <line x1="0" y1="-10" x2="0" y2="15" stroke="rgba(34, 197, 94, 0.4)" strokeWidth="2" />
-                    </g>
-
-                    {isPressed && (
-                      <polygon
-                        points="100,10 170,50 170,130 100,170 30,130 30,50"
-                        fill="rgba(34, 197, 94, 0.3)"
-                        className="animate-ping"
-                      />
-                    )}
-                  </svg>
-
-                  {isPressed && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-32 h-32 bg-emerald-500/20 rounded-full animate-ping" />
-                    </div>
-                  )}
-                </div>
-
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-600/50 whitespace-nowrap shadow-lg">
-                  <span className="text-white text-sm font-medium">Click to jump</span>
-                </div>
-              </button>
-            </div>
-
-            <div className="relative flex items-center justify-center w-full h-80" data-testid="icon-lightning">
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <line x1="0" y1="50" x2="50" y2="50" stroke="rgba(34, 197, 94, 0.3)" strokeWidth="0.5" />
+        <div className="relative max-w-6xl mx-auto h-[500px] flex items-center">
+          <div className="absolute inset-0 flex items-center justify-between px-4">
+            <button
+              onClick={handleClick}
+              className="tile-button group relative"
+              data-testid="button-tile"
+              disabled={isAnimating}
+            >
+              <div className={`tile-container ${isAnimating ? 'tile-active' : ''}`}>
+                <div className="tile-glow" />
                 
-                {features.map((_, index) => (
-                  <line
-                    key={index}
-                    x1="50"
-                    y1="50"
-                    x2="100"
-                    y2={20 + index * 15}
-                    stroke="rgba(34, 197, 94, 0.3)"
-                    strokeWidth="0.5"
+                <svg viewBox="0 0 200 200" className="tile-svg">
+                  <defs>
+                    <linearGradient id="tileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1f2937" />
+                      <stop offset="100%" stopColor="#111827" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <polygon
+                    points="100,30 160,70 160,140 100,180 40,140 40,70"
+                    fill="url(#tileGrad)"
+                    stroke="#374151"
+                    strokeWidth="2"
                   />
-                ))}
-              </svg>
+                  
+                  <circle cx="60" cy="80" r="4" fill="#22c55e" opacity="0.6" />
+                  <circle cx="140" cy="80" r="4" fill="#22c55e" opacity="0.6" />
+                  <circle cx="155" cy="105" r="4" fill="#22c55e" opacity="0.6" />
+                  <circle cx="140" cy="130" r="4" fill="#22c55e" opacity="0.6" />
+                  <circle cx="60" cy="130" r="4" fill="#22c55e" opacity="0.6" />
+                  <circle cx="45" cy="105" r="4" fill="#22c55e" opacity="0.6" />
+                  
+                  <path
+                    d="M 100 90 L 115 105 L 100 180"
+                    stroke="#22c55e"
+                    strokeWidth="2"
+                    fill="none"
+                    opacity="0.4"
+                  />
+                  <line x1="100" y1="105" x2="85" y2="105" stroke="#22c55e" strokeWidth="2" opacity="0.4" />
+                </svg>
 
-              {animationPhase === 'tile-to-bolt' && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                  <div className="energy-orb-to-bolt">
-                    <div className="w-6 h-6 bg-emerald-400 rounded-full blur-md" />
-                    <div className="absolute inset-0 w-4 h-4 bg-emerald-300 rounded-full" />
-                    <div className="absolute inset-0 w-2 h-2 bg-white rounded-full m-auto" />
-                  </div>
+                <div className="tile-label">
+                  <span>Click to jump</span>
                 </div>
-              )}
+              </div>
+            </button>
 
-              {animationPhase === 'bolt-to-features' && features.map((_, index) => (
-                <div
-                  key={index}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className={`energy-orb-to-feature-${index}`}>
-                    <div className="w-5 h-5 bg-emerald-400 rounded-full blur-md" />
-                    <div className="absolute inset-0 w-3 h-3 bg-emerald-300 rounded-full" />
-                    <div className="absolute inset-0 w-1.5 h-1.5 bg-white rounded-full m-auto" />
-                  </div>
-                </div>
-              ))}
-
-              <div 
-                className={`relative z-10 bg-gradient-to-br from-emerald-500 to-green-600 p-8 rounded-2xl transition-all duration-300 ${
-                  animationPhase === 'bolt-active' || animationPhase === 'bolt-to-features'
-                    ? 'scale-125 shadow-[0_0_60px_rgba(34,197,94,1)]' 
-                    : 'scale-100 shadow-[0_0_30px_rgba(34,197,94,0.5)]'
-                }`}
-              >
-                <Zap className="w-20 h-20 md:w-24 md:h-24 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]" strokeWidth={2.5} />
-                {(animationPhase === 'bolt-active' || animationPhase === 'bolt-to-features') && (
-                  <>
-                    <div className="absolute inset-0 bg-emerald-400/40 rounded-2xl animate-ping" />
-                    <div className="absolute inset-0 bg-emerald-300/20 rounded-2xl blur-2xl" />
-                  </>
-                )}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className={`bolt-container ${boltActive ? 'bolt-active' : ''}`}>
+                <Zap className="w-32 h-32 text-emerald-500" strokeWidth={2} fill="currentColor" />
+                <div className="bolt-glow" />
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 w-full">
+            <div className="flex flex-col gap-4 ml-auto w-full max-w-md">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
-                const isActive = activeFeatures.includes(index);
+                const isActive = activeFeatures.has(index);
                 
                 return (
                   <div
                     key={index}
-                    className={`relative rounded-xl p-5 border transition-all duration-500 ${
-                      isActive
-                        ? 'bg-gradient-to-br from-emerald-500 to-green-600 border-emerald-400 shadow-[0_0_30px_rgba(34,197,94,0.8)] scale-105' 
-                        : 'bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-emerald-500/20 hover:border-emerald-500/40'
-                    }`}
+                    className={`feature-box ${isActive ? 'feature-active' : ''}`}
                     data-testid={`feature-${index}`}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-lg transition-all duration-500 ${
-                        isActive 
-                          ? 'bg-white/20 shadow-[0_0_15px_rgba(255,255,255,0.5)]' 
-                          : 'bg-emerald-500/10'
-                      }`}>
-                        <Icon className={`w-6 h-6 transition-colors duration-500 ${isActive ? 'text-white' : 'text-emerald-400'}`} />
+                    <div className="flex items-center gap-4 relative z-10">
+                      <div className="feature-icon">
+                        <Icon className="w-7 h-7" />
                       </div>
                       <div className="flex-1">
-                        <h3 className={`font-semibold text-base mb-1 transition-colors duration-500 text-white`}>
+                        <h3 className="font-bold text-lg text-white">
                           {feature.title}
                         </h3>
-                        <p className={`text-sm transition-colors duration-500 ${isActive ? 'text-white/90' : 'text-blue-200/70'}`}>
-                          {feature.description}
-                        </p>
                       </div>
                     </div>
-                    {isActive && (
-                      <div className="absolute inset-0 bg-emerald-400/30 rounded-xl animate-ping pointer-events-none" />
-                    )}
+                    <div className="feature-glow" />
                   </div>
                 );
               })}
             </div>
           </div>
+
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+            <defs>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#22c55e" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#22c55e" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
+            
+            <path
+              d="M 200 250 Q 350 250 500 250"
+              stroke="url(#lineGrad)"
+              strokeWidth="2"
+              fill="none"
+              className={isAnimating ? 'line-pulse' : ''}
+            />
+            
+            {features.map((_, index) => (
+              <path
+                key={index}
+                d={`M 500 250 Q 650 ${200 + index * 25} 800 ${130 + index * 85}`}
+                stroke="url(#lineGrad)"
+                strokeWidth="2"
+                fill="none"
+                className={activeFeatures.has(index) ? 'line-pulse' : ''}
+              />
+            ))}
+
+            {isAnimating && (
+              <circle r="8" fill="#22c55e" filter="url(#glow)" className="energy-pulse-to-bolt">
+                <animate attributeName="cx" from="200" to="500" dur="0.8s" fill="freeze" />
+                <animate attributeName="cy" values="250;250" dur="0.8s" fill="freeze" />
+              </circle>
+            )}
+
+            {Array.from(activeFeatures).map((index) => (
+              <circle key={`pulse-${index}`} r="7" fill="#22c55e" filter="url(#glow)" className="energy-pulse-to-feature">
+                <animate attributeName="cx" from="500" to="800" dur="0.6s" fill="freeze" />
+                <animate attributeName="cy" from="250" to={130 + index * 85} dur="0.6s" fill="freeze" />
+                <animate attributeName="opacity" from="1" to="0" dur="0.6s" fill="freeze" />
+              </circle>
+            ))}
+
+            <defs>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
 
       <style>{`
-        .energy-orb-to-bolt {
+        .tile-button {
           position: relative;
-          animation: moveToBolt 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          width: 200px;
+          height: 200px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          transition: transform 0.2s;
         }
 
-        @keyframes moveToBolt {
-          0% {
-            transform: translate(0, 0);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(calc(50vw - 150px), 0);
-            opacity: 0;
-          }
+        .tile-button:hover:not(:disabled) {
+          transform: scale(1.05);
         }
 
-        ${features.map((_, index) => `
-          .energy-orb-to-feature-${index} {
-            position: relative;
-            animation: moveToFeature${index} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            animation-delay: ${index * 0.2}s;
-            opacity: 0;
-          }
+        .tile-button:active:not(:disabled) {
+          transform: scale(0.95);
+        }
 
-          @keyframes moveToFeature${index} {
-            0% {
-              transform: translate(0, 0);
-              opacity: 1;
-            }
-            100% {
-              transform: translate(calc(25vw), calc(${-150 + index * 80}px));
-              opacity: 0;
-            }
-          }
-        `).join('\n')}
+        .tile-button:disabled {
+          cursor: default;
+        }
+
+        .tile-container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .tile-glow {
+          position: absolute;
+          inset: -40px;
+          background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent 60%);
+          opacity: 0;
+          transition: opacity 0.3s;
+          border-radius: 50%;
+          filter: blur(20px);
+        }
+
+        .tile-button:hover .tile-glow {
+          opacity: 0.6;
+        }
+
+        .tile-active .tile-glow {
+          opacity: 1;
+          animation: pulse-glow 0.8s ease-out;
+        }
+
+        .tile-svg {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 2;
+        }
+
+        .tile-label {
+          position: absolute;
+          bottom: -30px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(31, 41, 55, 0.95);
+          backdrop-filter: blur(8px);
+          padding: 8px 16px;
+          border-radius: 20px;
+          border: 1px solid rgba(75, 85, 99, 0.5);
+          white-space: nowrap;
+          z-index: 3;
+        }
+
+        .tile-label span {
+          color: white;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .bolt-container {
+          position: relative;
+          transition: all 0.3s;
+        }
+
+        .bolt-glow {
+          position: absolute;
+          inset: -30px;
+          background: radial-gradient(circle, rgba(34, 197, 94, 0.6), transparent 60%);
+          opacity: 0;
+          filter: blur(30px);
+          transition: opacity 0.3s;
+        }
+
+        .bolt-active {
+          transform: scale(1.2);
+        }
+
+        .bolt-active .bolt-glow {
+          opacity: 1;
+          animation: bolt-pulse 0.6s ease-out;
+        }
+
+        .feature-box {
+          position: relative;
+          background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9));
+          border: 2px solid rgba(34, 197, 94, 0.2);
+          border-radius: 12px;
+          padding: 20px;
+          transition: all 0.3s;
+        }
+
+        .feature-box:hover {
+          border-color: rgba(34, 197, 94, 0.4);
+        }
+
+        .feature-active {
+          background: linear-gradient(135deg, rgb(34, 197, 94), rgb(16, 185, 129)) !important;
+          border-color: rgb(34, 197, 94) !important;
+          transform: scale(1.05);
+          box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+        }
+
+        .feature-glow {
+          position: absolute;
+          inset: -4px;
+          background: rgba(34, 197, 94, 0.3);
+          border-radius: 14px;
+          opacity: 0;
+          filter: blur(12px);
+          transition: opacity 0.3s;
+          z-index: 0;
+        }
+
+        .feature-active .feature-glow {
+          opacity: 1;
+          animation: feature-pulse 0.5s ease-out;
+        }
+
+        .feature-icon {
+          background: rgba(34, 197, 94, 0.15);
+          padding: 12px;
+          border-radius: 10px;
+          color: rgb(34, 197, 94);
+          transition: all 0.3s;
+        }
+
+        .feature-active .feature-icon {
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
+        }
+
+        .line-pulse {
+          animation: line-glow 0.8s ease-out;
+        }
+
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+
+        @keyframes bolt-pulse {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes feature-pulse {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+
+        @keyframes line-glow {
+          0% { stroke-width: 2; filter: drop-shadow(0 0 0 rgba(34, 197, 94, 0)); }
+          50% { stroke-width: 3; filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.8)); }
+          100% { stroke-width: 2; filter: drop-shadow(0 0 0 rgba(34, 197, 94, 0)); }
+        }
       `}</style>
     </section>
   );
