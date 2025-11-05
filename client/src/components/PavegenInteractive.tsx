@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { Zap, Users, GraduationCap, BarChart3 } from "lucide-react";
 
-interface EnergyPulse {
+interface TileToBoltPulse {
+  id: number;
+}
+
+interface BoltToFeaturePulse {
   id: number;
   targetIndex: number;
 }
 
 export default function PavegenInteractive() {
-  const [energyPulses, setEnergyPulses] = useState<EnergyPulse[]>([]);
+  const [tileToBoltPulses, setTileToBoltPulses] = useState<TileToBoltPulse[]>([]);
+  const [boltToFeaturePulses, setBoltToFeaturePulses] = useState<BoltToFeaturePulse[]>([]);
   const [pulseIdCounter, setPulseIdCounter] = useState(0);
   const [isPressed, setIsPressed] = useState(false);
+  const [boltActive, setBoltActive] = useState(false);
 
   const features = [
     {
@@ -38,41 +44,57 @@ export default function PavegenInteractive() {
     setIsPressed(true);
     setTimeout(() => setIsPressed(false), 200);
 
-    features.forEach((_, index) => {
-      const newPulse: EnergyPulse = {
-        id: pulseIdCounter + index,
-        targetIndex: index,
-      };
+    const tileToBoltPulse: TileToBoltPulse = {
+      id: pulseIdCounter,
+    };
 
-      setTimeout(() => {
-        setEnergyPulses((prev: EnergyPulse[]) => [...prev, newPulse]);
-      }, index * 100);
+    setTileToBoltPulses((prev: TileToBoltPulse[]) => [...prev, tileToBoltPulse]);
+    setPulseIdCounter((prev: number) => prev + 1);
 
-      setTimeout(() => {
-        setEnergyPulses((prev: EnergyPulse[]) => 
-          prev.filter((p: EnergyPulse) => p.id !== newPulse.id)
-        );
-      }, 1500 + index * 100);
-    });
+    setTimeout(() => {
+      setTileToBoltPulses((prev: TileToBoltPulse[]) => 
+        prev.filter((p: TileToBoltPulse) => p.id !== tileToBoltPulse.id)
+      );
+      
+      setBoltActive(true);
+      setTimeout(() => setBoltActive(false), 800);
 
-    setPulseIdCounter((prev: number) => prev + features.length);
+      features.forEach((_, index) => {
+        const boltToFeaturePulse: BoltToFeaturePulse = {
+          id: pulseIdCounter + 1 + index,
+          targetIndex: index,
+        };
+
+        setTimeout(() => {
+          setBoltToFeaturePulses((prev: BoltToFeaturePulse[]) => [...prev, boltToFeaturePulse]);
+        }, index * 120);
+
+        setTimeout(() => {
+          setBoltToFeaturePulses((prev: BoltToFeaturePulse[]) => 
+            prev.filter((p: BoltToFeaturePulse) => p.id !== boltToFeaturePulse.id)
+          );
+        }, 1000 + index * 120);
+      });
+
+      setPulseIdCounter((prev: number) => prev + features.length + 1);
+    }, 800);
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-[#1a2332] via-[#1e2d3d] to-[#1a3329] overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(34,197,94,0.08),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(56,189,248,0.06),transparent_50%)]" />
+    <section className="relative py-32 bg-gradient-to-br from-background via-card to-background overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--accent)/0.08),transparent_50%)]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight bg-gradient-to-r from-primary via-emerald-600 to-primary bg-clip-text text-transparent">
             Engage with the power of footsteps
           </h2>
-          <p className="text-lg md:text-xl text-blue-200/90 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
             Pavegen smart tiles convert human footsteps into electricity. Harness that energy to{" "}
-            <span className="text-blue-300 font-medium">capture attention</span>,{" "}
-            <span className="text-blue-300 font-medium">drive footfall</span> and{" "}
-            <span className="text-blue-300 font-medium">share your message</span>.
+            <span className="text-primary font-medium">capture attention</span>,{" "}
+            <span className="text-primary font-medium">drive footfall</span> and{" "}
+            <span className="text-primary font-medium">share your message</span>.
           </p>
         </div>
 
@@ -90,27 +112,30 @@ export default function PavegenInteractive() {
                 data-testid="button-tile"
               >
                 <div className="w-48 h-48 md:w-64 md:h-64 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 rounded-lg shadow-2xl transform -skew-y-3 border border-gray-600/50" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-lg shadow-2xl transform -skew-y-3 border-2 border-primary/30" />
                   
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="absolute top-4 left-4 w-3 h-3 bg-white/40 rounded-full" />
-                    <div className="absolute top-4 right-4 w-3 h-3 bg-white/40 rounded-full" />
-                    <div className="absolute bottom-4 left-4 w-3 h-3 bg-white/40 rounded-full" />
-                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-white/40 rounded-full" />
+                    <div className="absolute top-4 left-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <div className="absolute top-4 right-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <div className="absolute bottom-4 left-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-primary/60 rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
                     
-                    <svg className="w-16 h-16 text-white/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg className="w-16 h-16 text-primary/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 2L2 12h3v8h14v-8h3L12 2z" />
                       <path d="M8 12h8M12 8v8" />
                     </svg>
                   </div>
 
                   {isPressed && (
-                    <div className="absolute inset-0 bg-primary/20 rounded-lg animate-ping" />
+                    <>
+                      <div className="absolute inset-0 bg-primary/30 rounded-lg animate-ping" />
+                      <div className="absolute inset-0 bg-primary/10 rounded-lg" />
+                    </>
                   )}
                 </div>
 
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gray-700/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-500/50 whitespace-nowrap">
-                  <span className="text-white text-sm font-medium">Click to jump</span>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-card/90 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30 whitespace-nowrap shadow-lg">
+                  <span className="text-foreground text-sm font-medium">Click to jump</span>
                 </div>
               </button>
             </div>
@@ -118,48 +143,107 @@ export default function PavegenInteractive() {
             <div className="relative flex items-center justify-center w-full h-48 lg:h-64">
               <svg 
                 className="absolute inset-0 w-full h-full" 
-                viewBox="0 0 400 200" 
+                viewBox="0 0 500 250" 
                 preserveAspectRatio="none"
                 style={{ overflow: 'visible' }}
               >
+                <path
+                  d="M 50 125 Q 150 125 250 125"
+                  stroke="hsl(var(--primary) / 0.3)"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeDasharray="5,5"
+                />
+                
+                {tileToBoltPulses.map((pulse: TileToBoltPulse) => (
+                  <g key={`tile-bolt-${pulse.id}`}>
+                    <circle
+                      r="8"
+                      fill="url(#tilePulseGradient)"
+                      filter="url(#glowStrong)"
+                    >
+                      <animateMotion
+                        dur="0.8s"
+                        repeatCount="1"
+                        path="M 50 125 Q 150 125 250 125"
+                      />
+                    </circle>
+                    <circle
+                      r="16"
+                      fill="url(#tilePulseGradientOuter)"
+                      opacity="0.4"
+                    >
+                      <animateMotion
+                        dur="0.8s"
+                        repeatCount="1"
+                        path="M 50 125 Q 150 125 250 125"
+                      />
+                    </circle>
+                  </g>
+                ))}
+
                 {features.map((_, index) => {
-                  const startY = 100;
-                  const endY = 50 + (index * 35);
+                  const startY = 125;
+                  const endY = 60 + (index * 40);
                   
                   return (
                     <g key={`path-${index}`}>
                       <path
-                        d={`M 50 ${startY} Q 200 ${startY} 350 ${endY}`}
-                        stroke="rgba(34, 197, 94, 0.3)"
+                        d={`M 250 ${startY} Q 350 ${(startY + endY) / 2} 450 ${endY}`}
+                        stroke="hsl(var(--primary) / 0.3)"
                         strokeWidth="2"
                         fill="none"
                         strokeDasharray="5,5"
                       />
                       
-                      {energyPulses
-                        .filter((pulse: EnergyPulse) => pulse.targetIndex === index)
-                        .map((pulse: EnergyPulse) => (
-                          <circle
-                            key={pulse.id}
-                            r="6"
-                            fill="url(#pulseGradient)"
-                            filter="url(#glow)"
-                          >
-                            <animateMotion
-                              dur="1.5s"
-                              repeatCount="1"
-                              path={`M 50 ${startY} Q 200 ${startY} 350 ${endY}`}
-                            />
-                          </circle>
+                      {boltToFeaturePulses
+                        .filter((pulse: BoltToFeaturePulse) => pulse.targetIndex === index)
+                        .map((pulse: BoltToFeaturePulse) => (
+                          <g key={pulse.id}>
+                            <circle
+                              r="7"
+                              fill="url(#featurePulseGradient)"
+                              filter="url(#glow)"
+                            >
+                              <animateMotion
+                                dur="1s"
+                                repeatCount="1"
+                                path={`M 250 ${startY} Q 350 ${(startY + endY) / 2} 450 ${endY}`}
+                              />
+                            </circle>
+                            <circle
+                              r="14"
+                              fill="url(#featurePulseGradientOuter)"
+                              opacity="0.3"
+                            >
+                              <animateMotion
+                                dur="1s"
+                                repeatCount="1"
+                                path={`M 250 ${startY} Q 350 ${(startY + endY) / 2} 450 ${endY}`}
+                              />
+                            </circle>
+                          </g>
                         ))}
                     </g>
                   );
                 })}
 
                 <defs>
-                  <radialGradient id="pulseGradient">
-                    <stop offset="0%" stopColor="#22c55e" stopOpacity="1" />
-                    <stop offset="100%" stopColor="#10b981" stopOpacity="0.6" />
+                  <radialGradient id="tilePulseGradient">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+                    <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.8" />
+                  </radialGradient>
+                  <radialGradient id="tilePulseGradientOuter">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                  </radialGradient>
+                  <radialGradient id="featurePulseGradient">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+                    <stop offset="100%" stopColor="hsl(var(--primary) / 0.7)" stopOpacity="0.7" />
+                  </radialGradient>
+                  <radialGradient id="featurePulseGradientOuter">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
                   </radialGradient>
                   <filter id="glow">
                     <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -168,42 +252,57 @@ export default function PavegenInteractive() {
                       <feMergeNode in="SourceGraphic"/>
                     </feMerge>
                   </filter>
+                  <filter id="glowStrong">
+                    <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
                 </defs>
               </svg>
 
-              <div className="relative z-10 bg-gradient-to-br from-emerald-500 to-green-600 p-8 rounded-2xl shadow-2xl transform rotate-6 hover:rotate-12 transition-transform duration-300" data-testid="icon-lightning">
+              <div 
+                className={`relative z-10 bg-gradient-to-br from-primary to-emerald-600 p-8 rounded-2xl shadow-2xl transform transition-all duration-300 ${
+                  boltActive ? 'scale-110 rotate-12 shadow-[0_0_40px_hsl(var(--primary)/0.8)]' : 'rotate-6 hover:rotate-12'
+                }`}
+                data-testid="icon-lightning"
+              >
                 <Zap className="w-20 h-20 md:w-28 md:h-28 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" strokeWidth={2.5} />
+                {boltActive && (
+                  <div className="absolute inset-0 bg-primary/40 rounded-2xl animate-ping" />
+                )}
               </div>
             </div>
 
             <div className="flex flex-col gap-4 w-full max-w-sm">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
-                const hasActivePulse = energyPulses.some((p: EnergyPulse) => p.targetIndex === index);
+                const hasActivePulse = boltToFeaturePulses.some((p: BoltToFeaturePulse) => p.targetIndex === index);
                 
                 return (
                   <div
                     key={index}
-                    className={`relative bg-gradient-to-br from-[#1e3a4a] to-[#1a2f3a] rounded-xl p-5 border transition-all duration-300 ${
+                    className={`relative bg-gradient-to-br from-card to-card/50 rounded-xl p-5 border transition-all duration-300 ${
                       hasActivePulse 
-                        ? 'border-primary shadow-[0_0_20px_rgba(34,197,94,0.4)] scale-105' 
-                        : 'border-emerald-500/20 hover:border-emerald-500/40'
+                        ? 'border-primary shadow-[0_0_20px_hsl(var(--primary)/0.4)] scale-105' 
+                        : 'border-primary/20 hover:border-primary/40'
                     }`}
                     data-testid={`feature-${index}`}
                   >
                     <div className="flex items-center gap-4">
                       <div className={`p-3 rounded-lg transition-all duration-300 ${
                         hasActivePulse 
-                          ? 'bg-primary/30 shadow-[0_0_15px_rgba(34,197,94,0.5)]' 
-                          : 'bg-white/10'
+                          ? 'bg-primary/30 shadow-[0_0_15px_hsl(var(--primary)/0.5)]' 
+                          : 'bg-primary/10'
                       }`}>
-                        <Icon className="w-6 h-6 text-white" />
+                        <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-white font-semibold text-base mb-1">
+                        <h3 className="text-foreground font-semibold text-base mb-1">
                           {feature.title}
                         </h3>
-                        <p className="text-blue-200/70 text-sm">
+                        <p className="text-muted-foreground text-sm">
                           {feature.description}
                         </p>
                       </div>
