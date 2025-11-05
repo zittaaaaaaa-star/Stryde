@@ -61,14 +61,14 @@ export default function PavegenInteractive() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
             Engage with the power of footsteps
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-black">
             STRYDE smart tiles convert human footsteps into electricity. Harness that energy to{" "}
-            <span className="text-emerald-400 font-medium">capture attention</span>,{" "}
-            <span className="text-emerald-400 font-medium">drive footfall</span> and{" "}
-            <span className="text-emerald-400 font-medium">share your message</span>.
+            <span className="text-emerald-600 font-medium">capture attention</span>,{" "}
+            <span className="text-emerald-600 font-medium">drive footfall</span> and{" "}
+            <span className="text-emerald-600 font-medium">share your message</span>.
           </p>
         </div>
 
