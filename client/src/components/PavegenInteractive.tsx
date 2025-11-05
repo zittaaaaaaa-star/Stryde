@@ -93,26 +93,10 @@ export default function PavegenInteractive() {
                     
                     <polygon
                       points="100,30 160,70 160,140 100,180 40,140 40,70"
-                      fill="url(#tileGrad)"
+                      fill="transparent"
                       stroke="hsl(var(--border))"
                       strokeWidth="2"
                     />
-                    
-                    <circle cx="60" cy="80" r="4" fill="#22c55e" opacity="0.6" />
-                    <circle cx="140" cy="80" r="4" fill="#22c55e" opacity="0.6" />
-                    <circle cx="155" cy="105" r="4" fill="#22c55e" opacity="0.6" />
-                    <circle cx="140" cy="130" r="4" fill="#22c55e" opacity="0.6" />
-                    <circle cx="60" cy="130" r="4" fill="#22c55e" opacity="0.6" />
-                    <circle cx="45" cy="105" r="4" fill="#22c55e" opacity="0.6" />
-                    
-                    <path
-                      d="M 100 90 L 115 105 L 100 180"
-                      stroke="#22c55e"
-                      strokeWidth="2"
-                      fill="none"
-                      opacity="0.4"
-                    />
-                    <line x1="100" y1="105" x2="85" y2="105" stroke="#22c55e" strokeWidth="2" opacity="0.4" />
                   </svg>
 
                   <div className="tile-label">
@@ -157,58 +141,7 @@ export default function PavegenInteractive() {
             </div>
           </div>
 
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-            <defs>
-              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#22c55e" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#22c55e" stopOpacity="0.3" />
-              </linearGradient>
-            </defs>
-            
-            <path
-              d="M 280 250 Q 380 250 480 250"
-              stroke="url(#lineGrad)"
-              strokeWidth="2"
-              fill="none"
-              className={isAnimating ? 'line-pulse' : ''}
-            />
-            
-            {features.map((_, index) => (
-              <path
-                key={index}
-                d={`M 580 250 Q 720 ${200 + index * 25} 860 ${130 + index * 85}`}
-                stroke="url(#lineGrad)"
-                strokeWidth="2"
-                fill="none"
-                className={activeFeatures.has(index) ? 'line-pulse' : ''}
-              />
-            ))}
-
-            {isAnimating && (
-              <circle r="8" fill="#22c55e" filter="url(#glow)" className="energy-pulse-to-bolt">
-                <animate attributeName="cx" from="280" to="480" dur="0.8s" fill="freeze" />
-                <animate attributeName="cy" values="250;250" dur="0.8s" fill="freeze" />
-              </circle>
-            )}
-
-            {Array.from(activeFeatures).map((index) => (
-              <circle key={`pulse-${index}`} r="7" fill="#22c55e" filter="url(#glow)" className="energy-pulse-to-feature">
-                <animate attributeName="cx" from="580" to="860" dur="0.6s" fill="freeze" />
-                <animate attributeName="cy" from="250" to={130 + index * 85} dur="0.6s" fill="freeze" />
-                <animate attributeName="opacity" from="1" to="0" dur="0.6s" fill="freeze" />
-              </circle>
-            ))}
-
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-          </svg>
+          
         </div>
       </div>
 
