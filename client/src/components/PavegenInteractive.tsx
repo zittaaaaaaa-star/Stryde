@@ -129,7 +129,7 @@ export default function PavegenInteractive() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 w-full max-w-md flex-shrink-0">
+            <div className="flex flex-col gap-4 w-full max-w-md flex-shrink-0 ml-24">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 const isActive = activeFeatures.has(index);
@@ -176,7 +176,7 @@ export default function PavegenInteractive() {
             {features.map((_, index) => (
               <path
                 key={index}
-                d={`M 580 250 Q 680 ${200 + index * 25} 780 ${130 + index * 85}`}
+                d={`M 580 250 Q 720 ${200 + index * 25} 860 ${130 + index * 85}`}
                 stroke="url(#lineGrad)"
                 strokeWidth="2"
                 fill="none"
@@ -193,7 +193,7 @@ export default function PavegenInteractive() {
 
             {Array.from(activeFeatures).map((index) => (
               <circle key={`pulse-${index}`} r="7" fill="#22c55e" filter="url(#glow)" className="energy-pulse-to-feature">
-                <animate attributeName="cx" from="580" to="780" dur="0.6s" fill="freeze" />
+                <animate attributeName="cx" from="580" to="860" dur="0.6s" fill="freeze" />
                 <animate attributeName="cy" from="250" to={130 + index * 85} dur="0.6s" fill="freeze" />
                 <animate attributeName="opacity" from="1" to="0" dur="0.6s" fill="freeze" />
               </circle>
