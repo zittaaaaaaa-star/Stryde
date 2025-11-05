@@ -66,9 +66,9 @@ export default function PavegenInteractive() {
           </h2>
           <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-black">
             STRYDE smart tiles convert human footsteps into electricity. Harness that energy to{" "}
-            <span className="text-emerald-600 font-medium">capture attention</span>,{" "}
-            <span className="text-emerald-600 font-medium">drive footfall</span> and{" "}
-            <span className="text-emerald-600 font-medium">share your message</span>.
+            <span className="text-black font-medium">capture attention</span>,{" "}
+            <span className="text-black font-medium">drive footfall</span> and{" "}
+            <span className="text-black font-medium">share your message</span>.
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function PavegenInteractive() {
                         <Icon className="w-7 h-7" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-lg text-white">
+                        <h3 className="font-bold text-lg text-black">
                           {feature.title}
                         </h3>
                       </div>
@@ -216,7 +216,7 @@ export default function PavegenInteractive() {
         }
 
         .tile-label span {
-          color: hsl(var(--foreground));
+          color: black;
           font-size: 14px;
           font-weight: 500;
         }
