@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -60,13 +59,20 @@ export default function BrandNavigation() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               data-testid="button-mobile-menu"
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden pb-4 pt-2 space-y-1" data-testid="mobile-menu">
+          <div
+            className="md:hidden pb-4 pt-2 space-y-1"
+            data-testid="mobile-menu"
+          >
             <button
               onClick={() => scrollToSection("products")}
               className="block w-full text-left py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"

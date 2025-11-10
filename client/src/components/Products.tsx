@@ -11,8 +11,8 @@ export default function Products() {
   };
 
   const handleBuyClick = (productName: string) => {
-    // TODO: Integrate with ve hub when ready
-    console.log(`Buy button clicked for ${productName} - ve hub integration pending`);
+    const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67//${encodeURIComponent(productName)}`;
+    window.open(buyUrl, "_blank"); // opens in new tab
   };
 
   const products = [
@@ -20,7 +20,8 @@ export default function Products() {
       id: "floor-tiles",
       name: "Energy Harvesting Floor Tiles",
       icon: Grid3x3,
-      description: "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
+      description:
+        "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
       dimensions: "10 inches × 10 inches, Hexagonal",
       features: [
         "Recycled PVC Top Plate - Durable, eco-friendly surface repurposed from vinyl flooring; resists wear and provides stable foot traction.",
@@ -28,49 +29,66 @@ export default function Products() {
         "Aluminum Base Plate - Lightweight structural backbone that anchors components and houses the electrode array.",
         "Tension Compression Springs - Adds mechanical return force, enhancing tactile feedback and motion responsiveness.",
         "Rubber Gasket System - Fully seals the liquid microcell chamber, preventing leaks and maintaining pressure consistency",
-        "Precision Fastener Assembly - Rigid yet flexible connection allowing controlled vertical movement between layers."
+        "Precision Fastener Assembly - Rigid yet flexible connection allowing controlled vertical movement between layers.",
       ],
-      applications: "Smart Buildings • Public Spaces • High Traffic Areas"
+      applications: "Smart Buildings • Public Spaces • High Traffic Areas",
     },
     {
       id: "shoe-soles",
       name: "Energy Harvesting Shoe Soles",
       icon: Footprints,
-      description: "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
+      description:
+        "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
       features: [
         "Antimicrobial breathable mesh top layer",
         "Graphene-infused PU foam for heat conduction",
-        "Hydrophobic coating - sweat resistant & easy to clean"
+        "Hydrophobic coating - sweat resistant & easy to clean",
       ],
-      applications: "Athletes • Daily Wear • Medical"
-    }
+      applications: "Athletes • Daily Wear • Medical",
+    },
   ];
 
   return (
     <section id="products" className="py-32 bg-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <Badge variant="outline" className="mb-6" data-testid="badge-products-title">
+          <Badge
+            variant="outline"
+            className="mb-6"
+            data-testid="badge-products-title"
+          >
             Products
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-products">
+          <h2
+            className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight"
+            data-testid="heading-products"
+          >
             Energy Harvesting Solutions
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-products-description">
-            Transform everyday movement into clean, sustainable energy with our innovative products.
+          <p
+            className="text-xl text-muted-foreground leading-relaxed"
+            data-testid="text-products-description"
+          >
+            Transform everyday movement into clean, sustainable energy with our
+            innovative products.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-16">
           {products.map((product) => (
-            <div key={product.id} className="bg-card rounded-2xl p-12 border border-border">
+            <div
+              key={product.id}
+              className="bg-card rounded-2xl p-12 border border-border"
+            >
               <div className="flex flex-col gap-8">
                 <div className="flex items-start gap-6">
                   <div className="h-16 w-16 rounded-2xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
                     <product.icon className="h-8 w-8 text-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-3xl font-semibold mb-3">{product.name}</h3>
+                    <h3 className="text-3xl font-semibold mb-3">
+                      {product.name}
+                    </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                       {product.description}
                     </p>
@@ -86,9 +104,18 @@ export default function Products() {
                   <div className="space-y-4">
                     <h4 className="font-semibold text-lg">Key Features</h4>
                     {product.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3" data-testid={`feature-${product.id}-${idx}`}>
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3"
+                        data-testid={`feature-${product.id}-${idx}`}
+                      >
                         <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                        <span className="text-foreground/80 leading-relaxed" data-testid={`text-feature-${product.id}-${idx}`}>{feature}</span>
+                        <span
+                          className="text-foreground/80 leading-relaxed"
+                          data-testid={`text-feature-${product.id}-${idx}`}
+                        >
+                          {feature}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -114,12 +141,16 @@ export default function Products() {
         </div>
 
         <div className="max-w-3xl mx-auto bg-card rounded-3xl p-12 text-center border border-border mt-16">
-          <h3 className="text-3xl font-semibold mb-4" data-testid="heading-custom-solutions">
+          <h3
+            className="text-3xl font-semibold mb-4"
+            data-testid="heading-custom-solutions"
+          >
             Questions About Our Products?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Have questions about sizing, bulk orders, or custom configurations? 
-            Our team is ready to help you find the perfect energy harvesting solution.
+            Have questions about sizing, bulk orders, or custom configurations?
+            Our team is ready to help you find the perfect energy harvesting
+            solution.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
