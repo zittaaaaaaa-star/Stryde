@@ -12,13 +12,13 @@ export default function Products() {
 
   const handleBuyClick = (productName: string) => {
     const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/`;
-    window.open(buyUrl, "_blank"); // opens in new tab
+    window.open(buyUrl, "_blank");
   };
 
   const products = [
     {
       id: "floor-tiles",
-      name: "Energy Harvesting Floor Tiles",
+      name: "Hexagon Floor Tiles",
       icon: Grid3x3,
       description:
         "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
@@ -35,7 +35,7 @@ export default function Products() {
     },
     {
       id: "shoe-soles",
-      name: "Energy Harvesting Shoe Soles",
+      name: "Shoe Soles",
       icon: Footprints,
       description:
         "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
