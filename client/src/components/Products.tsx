@@ -11,7 +11,7 @@ export default function Products() {
   };
 
   const handleBuyClick = (productName: string) => {
-    const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/${encodeURIComponent(productName)}`;
+    const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/`;
     window.open(buyUrl, "_blank"); // opens in new tab
   };
 
