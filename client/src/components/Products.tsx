@@ -84,7 +84,7 @@ export default function Products() {
     },
   ];
 
-  const bundleBuyUrl = "#";
+  const bundleBuyUrl = "https://portal.veinternational.org/buybuttons/us0110240/btn/shoe-insoles-power-bank-25/";
 
   return (
     <section id="products" className="py-16 sm:py-24 lg:py-32 bg-muted/20">
