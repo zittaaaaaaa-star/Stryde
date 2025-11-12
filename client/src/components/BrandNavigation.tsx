@@ -55,7 +55,6 @@ export default function BrandNavigation() {
               onClick={() => scrollToSection("products")}
               data-testid="button-nav-buy"
             >
-              <ShoppingCart className="mr-2 h-4 w-4" />
               Buy
             </Button>
           </div>
