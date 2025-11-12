@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Footprints, Grid3x3, ShoppingCart } from "lucide-react";
+import { Footprints, Grid3x3, ShoppingCart, Battery, Package } from "lucide-react";
 
 export default function Products() {
   const scrollToContact = () => {
@@ -18,7 +18,7 @@ export default function Products() {
   const products = [
     {
       id: "floor-tiles",
-      name: "Hexagon Floor Tiles",
+      name: "Hexagon Floor Tiles (LED)",
       icon: Grid3x3,
       description:
         "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
@@ -34,8 +34,22 @@ export default function Products() {
       applications: "Smart Buildings • Public Spaces • High Traffic Areas",
     },
     {
-      id: "shoe-soles",
-      name: "Shoe Soles",
+      id: "power-bank",
+      name: "Power Bank",
+      icon: Battery,
+      description:
+        "Compact and efficient power storage solution that pairs perfectly with our energy harvesting products.",
+      features: [
+        "High-capacity lithium-ion battery",
+        "Fast charging capabilities",
+        "Multiple device compatibility",
+        "Portable and lightweight design",
+      ],
+      applications: "Mobile Charging • Emergency Backup • Outdoor Activities",
+    },
+    {
+      id: "shoe-insoles",
+      name: "Shoe Insoles",
       icon: Footprints,
       description:
         "Advanced shoe insoles that generate power from every step while providing exceptional comfort.",
@@ -138,6 +152,80 @@ export default function Products() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-24">
+          <div className="text-center mb-12">
+            <Badge
+              variant="outline"
+              className="mb-6"
+              data-testid="badge-bundle-title"
+            >
+              Bundle Deal
+            </Badge>
+            <h3 className="text-4xl font-semibold mb-4" data-testid="heading-bundle">
+              Shoe Insoles + Power Bank Bundle
+            </h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Get the complete energy harvesting experience with our exclusive bundle.
+            </p>
+          </div>
+
+          <div className="bg-card rounded-2xl p-12 border border-border">
+            <div className="flex flex-col gap-8">
+              <div className="flex items-start gap-6">
+                <div className="h-16 w-16 rounded-2xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
+                  <Package className="h-8 w-8 text-foreground" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-3xl font-semibold mb-3">
+                    Shoe Insoles + Power Bank
+                  </h4>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    The perfect combination for on-the-go energy generation and storage. 
+                    Generate power with every step and store it for when you need it most.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h5 className="font-semibold text-lg">Bundle Includes</h5>
+                <div className="flex items-start gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  <span className="text-foreground/80 leading-relaxed">
+                    1x Shoe Insoles with energy harvesting technology
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  <span className="text-foreground/80 leading-relaxed">
+                    1x High-capacity Power Bank
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  <span className="text-foreground/80 leading-relaxed">
+                    Seamless integration for maximum efficiency
+                  </span>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-border/50">
+                <p className="text-sm text-muted-foreground font-medium tracking-wide mb-6">
+                  Applications: Personal Energy Independence • Long-distance Travel • Emergency Preparedness
+                </p>
+                <Button
+                  size="lg"
+                  onClick={() => handleBuyClick("Shoe Insoles + Power Bank Bundle")}
+                  data-testid="button-buy-bundle"
+                  className="w-full sm:w-auto"
+                >
+                  <ShoppingCart className="mr-2 h-5 w-5" />
+                  Buy Bundle
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-3xl mx-auto bg-card rounded-3xl p-12 text-center border border-border mt-16">

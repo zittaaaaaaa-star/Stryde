@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
 export default function BrandNavigation() {
@@ -11,6 +11,11 @@ export default function BrandNavigation() {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
+  };
+
+  const handleBuyClick = () => {
+    const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/`;
+    window.open(buyUrl, "_blank");
   };
 
   return (
@@ -50,9 +55,24 @@ export default function BrandNavigation() {
             >
               Contact
             </button>
+            <Button
+              size="sm"
+              onClick={handleBuyClick}
+              data-testid="button-nav-buy"
+            >
+              <ShoppingCart className="mr-2 h-4 w-4" />
+              Buy
+            </Button>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <Button
+              size="sm"
+              onClick={handleBuyClick}
+              data-testid="button-mobile-buy"
+            >
+              <ShoppingCart className="h-4 w-4" />
+            </Button>
             <Button
               variant="ghost"
               size="icon"
