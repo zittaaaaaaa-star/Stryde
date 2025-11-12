@@ -48,7 +48,7 @@ export default function Products() {
         "Portable and lightweight design",
       ],
       applications: "Mobile Charging • Emergency Backup • Outdoor Activities",
-      buyUrl: "#",
+      buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/power-bank-66/",
     },
     {
       id: "shoe-insoles",
@@ -62,7 +62,7 @@ export default function Products() {
         "Hydrophobic coating - sweat resistant & easy to clean",
       ],
       applications: "Athletes • Daily Wear • Medical",
-      buyUrl: "#",
+      buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/shoe-insoles-69/",
     },
   ];
 
