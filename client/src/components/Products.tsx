@@ -18,7 +18,7 @@ export default function Products() {
 
   const products = [
     {
-      id: "floor-tiles",
+      id: "floor-tiles-led",
       name: "Hexagon Floor Tiles (LED)",
       icon: Grid3x3,
       description:
@@ -34,6 +34,24 @@ export default function Products() {
       ],
       applications: "Smart Buildings • Public Spaces • High Traffic Areas",
       buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/",
+    },
+    {
+      id: "floor-tiles",
+      name: "Hexagon Floor Tiles",
+      icon: Grid3x3,
+      description:
+        "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
+      dimensions: "10 inches × 10 inches, Hexagonal",
+      features: [
+        "Recycled PVC Top Plate - Durable, eco-friendly surface repurposed from vinyl flooring; resists wear and provides stable foot traction.",
+        "EVA / Neoprene Foam Layer - High-resilience cushioning for shock absorption and smooth energy transfer.",
+        "Aluminum Base Plate - Lightweight structural backbone that anchors components and houses the electrode array.",
+        "Tension Compression Springs - Adds mechanical return force, enhancing tactile feedback and motion responsiveness.",
+        "Rubber Gasket System - Fully seals the liquid microcell chamber, preventing leaks and maintaining pressure consistency",
+        "Precision Fastener Assembly - Rigid yet flexible connection allowing controlled vertical movement between layers.",
+      ],
+      applications: "Smart Buildings • Public Spaces • High Traffic Areas",
+      buyUrl: "#",
     },
     {
       id: "power-bank",
@@ -65,6 +83,8 @@ export default function Products() {
       buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/shoe-insoles-69/",
     },
   ];
+
+  const bundleBuyUrl = "#";
 
   return (
     <section id="products" className="py-16 sm:py-24 lg:py-32 bg-muted/20">
@@ -220,7 +240,7 @@ export default function Products() {
                 </p>
                 <Button
                   size="default"
-                  onClick={() => handleBuyClick("#")}
+                  onClick={() => handleBuyClick(bundleBuyUrl)}
                   data-testid="button-buy-bundle"
                   className="w-full"
                 >
