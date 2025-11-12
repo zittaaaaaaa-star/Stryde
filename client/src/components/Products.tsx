@@ -10,9 +10,10 @@ export default function Products() {
     }
   };
 
-  const handleBuyClick = (productName: string) => {
-    const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/`;
-    window.open(buyUrl, "_blank");
+  const handleBuyClick = (buyUrl: string) => {
+    if (buyUrl && buyUrl !== "#") {
+      window.open(buyUrl, "_blank");
+    }
   };
 
   const products = [
@@ -32,6 +33,7 @@ export default function Products() {
         "Precision Fastener Assembly - Rigid yet flexible connection allowing controlled vertical movement between layers.",
       ],
       applications: "Smart Buildings • Public Spaces • High Traffic Areas",
+      buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/",
     },
     {
       id: "power-bank",
@@ -46,6 +48,7 @@ export default function Products() {
         "Portable and lightweight design",
       ],
       applications: "Mobile Charging • Emergency Backup • Outdoor Activities",
+      buyUrl: "#",
     },
     {
       id: "shoe-insoles",
@@ -59,28 +62,29 @@ export default function Products() {
         "Hydrophobic coating - sweat resistant & easy to clean",
       ],
       applications: "Athletes • Daily Wear • Medical",
+      buyUrl: "#",
     },
   ];
 
   return (
-    <section id="products" className="py-32 bg-muted/20">
+    <section id="products" className="py-16 sm:py-24 lg:py-32 bg-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
           <Badge
             variant="outline"
-            className="mb-6"
+            className="mb-4 sm:mb-6"
             data-testid="badge-products-title"
           >
             Products
           </Badge>
           <h2
-            className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6 tracking-tight"
             data-testid="heading-products"
           >
             Energy Harvesting Solutions
           </h2>
           <p
-            className="text-xl text-muted-foreground leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed"
             data-testid="text-products-description"
           >
             Transform everyday movement into clean, sustainable energy with our
@@ -88,139 +92,139 @@ export default function Products() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-16">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-card rounded-2xl p-12 border border-border"
+              className="bg-card rounded-xl p-6 sm:p-8 border border-border flex flex-col"
             >
-              <div className="flex flex-col gap-8">
-                <div className="flex items-start gap-6">
-                  <div className="h-16 w-16 rounded-2xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
-                    <product.icon className="h-8 w-8 text-foreground" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-3xl font-semibold mb-3">
-                      {product.name}
-                    </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                      {product.description}
-                    </p>
-                    {product.dimensions && (
-                      <p className="text-sm font-medium text-foreground/70">
-                        Dimensions: {product.dimensions}
-                      </p>
-                    )}
-                  </div>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="h-12 w-12 rounded-xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
+                  <product.icon className="h-6 w-6 text-foreground" />
                 </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-2 break-words">
+                    {product.name}
+                  </h3>
+                </div>
+              </div>
 
-                {product.features && (
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Key Features</h4>
-                    {product.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3"
-                        data-testid={`feature-${product.id}-${idx}`}
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
+                {product.description}
+              </p>
+
+              {product.dimensions && (
+                <p className="text-xs sm:text-sm font-medium text-foreground/70 mb-4">
+                  Dimensions: {product.dimensions}
+                </p>
+              )}
+
+              {product.features && (
+                <div className="space-y-2 mb-4 flex-1">
+                  <h4 className="font-semibold text-sm sm:text-base">Key Features</h4>
+                  {product.features.map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-2"
+                      data-testid={`feature-${product.id}-${idx}`}
+                    >
+                      <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-1.5 flex-shrink-0" />
+                      <span
+                        className="text-xs sm:text-sm text-foreground/80 leading-relaxed"
+                        data-testid={`text-feature-${product.id}-${idx}`}
                       >
-                        <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                        <span
-                          className="text-foreground/80 leading-relaxed"
-                          data-testid={`text-feature-${product.id}-${idx}`}
-                        >
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className="pt-6 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground font-medium tracking-wide mb-6">
-                    Applications: {product.applications}
-                  </p>
-                  <Button
-                    size="lg"
-                    onClick={() => handleBuyClick(product.name)}
-                    data-testid={`button-buy-${product.id}`}
-                    className="w-full sm:w-auto"
-                  >
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    Buy Now
-                  </Button>
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
                 </div>
+              )}
+
+              <div className="pt-4 border-t border-border/50 mt-auto">
+                <p className="text-xs text-muted-foreground font-medium tracking-wide mb-4">
+                  {product.applications}
+                </p>
+                <Button
+                  size="default"
+                  onClick={() => handleBuyClick(product.buyUrl)}
+                  data-testid={`button-buy-${product.id}`}
+                  className="w-full"
+                >
+                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  Buy Now
+                </Button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto mt-24">
-          <div className="text-center mb-12">
+        <div className="max-w-6xl mx-auto mt-12 sm:mt-16 lg:mt-24">
+          <div className="text-center mb-8 sm:mb-12">
             <Badge
               variant="outline"
-              className="mb-6"
+              className="mb-4 sm:mb-6"
               data-testid="badge-bundle-title"
             >
               Bundle Deal
             </Badge>
-            <h3 className="text-4xl font-semibold mb-4" data-testid="heading-bundle">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 sm:mb-4" data-testid="heading-bundle">
               Shoe Insoles + Power Bank Bundle
             </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed px-4">
               Get the complete energy harvesting experience with our exclusive bundle.
             </p>
           </div>
 
-          <div className="bg-card rounded-2xl p-12 border border-border">
-            <div className="flex flex-col gap-8">
-              <div className="flex items-start gap-6">
-                <div className="h-16 w-16 rounded-2xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
-                  <Package className="h-8 w-8 text-foreground" />
+          <div className="bg-card rounded-xl p-6 sm:p-8 lg:p-12 border border-border">
+            <div className="flex flex-col gap-6 sm:gap-8">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="h-12 w-12 sm:h-16 sm:w-16 rounded-xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
+                  <Package className="h-6 w-6 sm:h-8 sm:w-8 text-foreground" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-3xl font-semibold mb-3">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 sm:mb-3">
                     Shoe Insoles + Power Bank
                   </h4>
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                     The perfect combination for on-the-go energy generation and storage. 
                     Generate power with every step and store it for when you need it most.
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h5 className="font-semibold text-lg">Bundle Includes</h5>
-                <div className="flex items-start gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  <span className="text-foreground/80 leading-relaxed">
+              <div className="space-y-3 sm:space-y-4">
+                <h5 className="font-semibold text-base sm:text-lg">Bundle Includes</h5>
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-1.5 sm:mt-2 flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">
                     1x Shoe Insoles with energy harvesting technology
                   </span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  <span className="text-foreground/80 leading-relaxed">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-1.5 sm:mt-2 flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">
                     1x High-capacity Power Bank
                   </span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  <span className="text-foreground/80 leading-relaxed">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-foreground mt-1.5 sm:mt-2 flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-foreground/80 leading-relaxed">
                     Seamless integration for maximum efficiency
                   </span>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-border/50">
-                <p className="text-sm text-muted-foreground font-medium tracking-wide mb-6">
-                  Applications: Personal Energy Independence • Long-distance Travel • Emergency Preparedness
+              <div className="pt-4 sm:pt-6 border-t border-border/50">
+                <p className="text-xs sm:text-sm text-muted-foreground font-medium tracking-wide mb-4 sm:mb-6">
+                  Personal Energy Independence • Long-distance Travel • Emergency Preparedness
                 </p>
                 <Button
-                  size="lg"
-                  onClick={() => handleBuyClick("Shoe Insoles + Power Bank Bundle")}
+                  size="default"
+                  onClick={() => handleBuyClick("#")}
                   data-testid="button-buy-bundle"
-                  className="w-full sm:w-auto"
+                  className="w-full"
                 >
-                  <ShoppingCart className="mr-2 h-5 w-5" />
+                  <ShoppingCart className="mr-2 h-4 w-4" />
                   Buy Bundle
                 </Button>
               </div>
@@ -228,21 +232,21 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-card rounded-3xl p-12 text-center border border-border mt-16">
+        <div className="max-w-3xl mx-auto bg-card rounded-2xl p-6 sm:p-8 lg:p-12 text-center border border-border mt-12 sm:mt-16">
           <h3
-            className="text-3xl font-semibold mb-4"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4"
             data-testid="heading-custom-solutions"
           >
             Questions About Our Products?
           </h3>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-4">
             Have questions about sizing, bulk orders, or custom configurations?
             Our team is ready to help you find the perfect energy harvesting
             solution.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <Button
-              size="lg"
+              size="default"
               onClick={scrollToContact}
               data-testid="button-contact-sales"
             >

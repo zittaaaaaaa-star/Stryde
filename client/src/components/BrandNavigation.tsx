@@ -13,11 +13,6 @@ export default function BrandNavigation() {
     }
   };
 
-  const handleBuyClick = () => {
-    const buyUrl = `https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/`;
-    window.open(buyUrl, "_blank");
-  };
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-emerald-500/10 via-yellow-500/10 to-teal-500/10 backdrop-blur-xl border-b border-border/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +52,7 @@ export default function BrandNavigation() {
             </button>
             <Button
               size="sm"
-              onClick={handleBuyClick}
+              onClick={() => scrollToSection("products")}
               data-testid="button-nav-buy"
             >
               <ShoppingCart className="mr-2 h-4 w-4" />
@@ -68,7 +63,7 @@ export default function BrandNavigation() {
           <div className="md:hidden flex items-center gap-2">
             <Button
               size="sm"
-              onClick={handleBuyClick}
+              onClick={() => scrollToSection("products")}
               data-testid="button-mobile-buy"
             >
               <ShoppingCart className="h-4 w-4" />
