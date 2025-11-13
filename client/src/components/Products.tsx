@@ -37,7 +37,7 @@ export default function Products() {
     },
     {
       id: "floor-tiles",
-      name: "Hexagon Floor Tiles",
+      name: "Hexagon Floor Tiles (Solar)",
       icon: Grid3x3,
       description:
         "Revolutionary hexagonal floor tiles that convert footsteps into electrical power using REWOD technology.",
