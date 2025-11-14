@@ -127,6 +127,9 @@ export default function ProductsPage() {
               Transform everyday movement into clean, sustainable energy with our
               innovative products.
             </p>
+            <p className="text-xs text-muted-foreground mt-3 italic" data-testid="text-tax-notice">
+              *Tax not included
+            </p>
           </div>
 
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
