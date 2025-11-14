@@ -1,0 +1,139 @@
+1. Add new sections to the Home page
+
+On the main page, create these sections in this order:
+
+Hero (keep as is, just update logo & colors as described below).
+
+Elevator Pitch Video section (NEW – goes above the product section).
+
+Product section (keep my existing product cards / content).
+
+About Us section (NEW).
+
+Experience section (NEW).
+
+Meet the Team section (NEW).
+
+Each of these should be clearly separated and full-width with good padding on desktop and mobile.
+
+2. Elevator Pitch Video section (above products)
+
+Create a section above the product section with:
+
+A title: “Elevator Pitch”
+
+A subtitle line:
+
+“Watch our quick overview and see how EVL powers every step.”
+
+A centered video player (use my existing video file if there is one, or a placeholder <video>/iframe I can swap later).
+
+A small lightning bolt icon near the title (for example using Zap from lucide-react) or an emoji ⚡.
+
+Make sure this section has a visually distinct background (e.g., slightly darker or lighter than the main background).
+
+3. About Us section
+
+Add a new section titled “About Us” with:
+
+Heading text: “About Us ⚡” (include the lightning bolt).
+
+1–2 short paragraphs describing the brand (you can use placeholder text that I can edit).
+
+Example placeholder copy:
+
+EVL is a forward-thinking brand focused on turning everyday movement into real impact. We blend clean design, smart tech, and bold energy to create experiences people can feel under their feet.
+
+Use a simple two-column layout on desktop (text on one side, optional image/graphic on the other) and stack them on mobile.
+
+4. Experience section
+
+Add a new section titled “Experience” with:
+
+Heading: “Experience EVL”
+
+Subheading:
+
+“See what it feels like when every stride lights up the floor.”
+
+3 feature cards or columns, for example:
+
+Step – People walk naturally across the tiles.
+
+Energy – Each step triggers light and energy.
+
+Insight – Every stride generates data and engagement.
+
+Add a small lightning bolt icon in each card or next to the section title.
+
+5. Meet the Team section
+
+Add a new section titled “Meet the Team” with:
+
+A short intro line:
+
+“The minds behind EVL.”
+
+A responsive grid of team member cards (you can add 2–4 placeholder members), each card with:
+
+Name
+
+Role
+
+Short 1–2 sentence bio
+
+Example placeholder card:
+
+Eric Zheng – Founder & Experience Designer
+
+Eric focuses on turning ideas into interactive experiences, blending tech, design, and real-world impact.
+
+Use a card style that matches the new site colors and includes a small lightning bolt accent (icon or emoji) somewhere subtle.
+
+6. Lightning bolt usage
+
+Throughout the page:
+
+Use a lightning bolt icon (for example Zap from lucide-react) or the emoji ⚡:
+
+Next to some section titles (Elevator Pitch, About Us, Experience, CTAs).
+
+Optionally in CTA buttons like: Get Started ⚡ or Learn More ⚡.
+
+Keep it consistent and not overused.
+
+7. Update the logo
+
+Update the site’s logo to use the attached logo image that I added to the project (replace the current logo image).
+
+Use this new logo in the navbar on every page.
+
+Make the logo clickable to go back to the Home page.
+
+Ensure it looks sharp on both desktop and mobile (reasonable width/height, no distortion).
+
+If the project already has a Logo component, update that to use the new image file. Otherwise, create one.
+
+8. Update the color palette to match the logo
+
+Extract the main colors from the attached logo image and:
+
+Update the site’s primary background, accent, and button colors to match the logo’s palette.
+
+Make sure:
+
+Text is accessible and high contrast.
+
+Buttons and links use the accent color(s) from the logo.
+
+Hover states stay within that palette.
+
+If Tailwind is used with a config file, update the theme colors (e.g., primary, secondary, accent) to match the logo’s colors and refactor the components to use those classes where appropriate.
+
+9. General styling & responsiveness
+
+Keep everything fully responsive for mobile and desktop.
+
+Maintain consistent spacing (padding, margins) between the new sections and the existing ones.
+
+Make sure the new sections visually fit with the rest of the site after the color palette update.
