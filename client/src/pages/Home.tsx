@@ -1,5 +1,7 @@
 import BrandNavigation from "@/components/BrandNavigation";
 import PatentHero from "@/components/PatentHero";
+import AboutUs from "@/components/AboutUs";
+import MeetTheTeam from "@/components/MeetTheTeam";
 import Products from "@/components/Products";
 import TechnologyShowcase from "@/components/TechnologyShowcase";
 import PavegenInteractive from "@/components/PavegenInteractive";
@@ -12,6 +14,8 @@ export default function Home() {
     <div className="min-h-screen">
       <BrandNavigation />
       <PatentHero />
+      <AboutUs />
+      <MeetTheTeam />
       <Products />
       <TechnologyShowcase />
       <PavegenInteractive />

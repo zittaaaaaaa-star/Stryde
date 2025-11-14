@@ -15,74 +15,74 @@
   --elevate-1: rgba(0,0,0, .02);
   --elevate-2: rgba(0,0,0, .05);
 
-  /* Solarpunk: Warm sunny background with subtle green tint */
-  --background: 45 80% 97%;
+  /* Modern professional background */
+  --background: 0 0% 100%;
 
-  --foreground: 155 30% 15%;
+  --foreground: 222 47% 11%;
 
-  --border: 120 20% 85%;
+  --border: 214 32% 91%;
 
-  /* Cards with light eco-friendly tint */
-  --card: 140 40% 98%;
+  /* Clean card backgrounds */
+  --card: 0 0% 100%;
 
-  --card-foreground: 155 30% 15%;
+  --card-foreground: 222 47% 11%;
 
-  --card-border: 120 25% 90%;
+  --card-border: 214 32% 91%;
 
-  --sidebar: 140 35% 96%;
+  --sidebar: 210 40% 98%;
 
-  --sidebar-foreground: 155 30% 15%;
+  --sidebar-foreground: 222 47% 11%;
 
-  --sidebar-border: 120 20% 88%;
+  --sidebar-border: 214 32% 91%;
 
-  /* Vibrant green primary inspired by nature/energy */
-  --sidebar-primary: 145 65% 35%;
+  /* Modern electric blue primary */
+  --sidebar-primary: 217 91% 60%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 120 30% 92%;
+  --sidebar-accent: 210 40% 96%;
 
-  --sidebar-accent-foreground: 155 30% 15%;
+  --sidebar-accent-foreground: 222 47% 11%;
 
-  --sidebar-ring: 145 65% 35%;
+  --sidebar-ring: 217 91% 60%;
 
-  --popover: 140 35% 97%;
+  --popover: 0 0% 100%;
 
-  --popover-foreground: 155 30% 15%;
+  --popover-foreground: 222 47% 11%;
 
-  --popover-border: 120 20% 85%;
+  --popover-border: 214 32% 91%;
 
-  /* Energetic green for primary actions */
-  --primary: 145 65% 38%;
+  /* Electric blue for primary actions */
+  --primary: 217 91% 60%;
 
   --primary-foreground: 0 0% 100%;
 
-  /* Soft yellow-green secondary */
-  --secondary: 75 50% 90%;
+  /* Soft neutral secondary */
+  --secondary: 210 40% 96%;
 
-  --secondary-foreground: 155 30% 15%;
+  --secondary-foreground: 222 47% 11%;
 
-  /* Muted natural tones */
-  --muted: 120 25% 94%;
+  /* Muted professional tones */
+  --muted: 210 40% 96%;
 
-  --muted-foreground: 155 15% 40%;
+  --muted-foreground: 215 16% 47%;
 
-  /* Accent with solar orange-yellow energy */
-  --accent: 35 90% 55%;
+  /* Vibrant accent color */
+  --accent: 142 76% 36%;
 
-  --accent-foreground: 155 30% 15%;
+  --accent-foreground: 0 0% 100%;
 
-  --destructive: 0 72% 50%;
+  --destructive: 0 84% 60%;
 
   --destructive-foreground: 0 0% 100%;
 
-  --input: 120 20% 88%;
-  --ring: 145 65% 38%;
-  --chart-1: 145 65% 45%;
-  --chart-2: 75 60% 50%;
-  --chart-3: 35 85% 55%;
-  --chart-4: 195 70% 45%;
-  --chart-5: 280 50% 55%;
+  --input: 214 32% 91%;
+  --ring: 217 91% 60%;
+  --chart-1: 217 91% 60%;
+  --chart-2: 142 76% 36%;
+  --chart-3: 38 92% 50%;
+  --chart-4: 280 61% 50%;
+  --chart-5: 340 82% 52%;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: "New York", Georgia, serif;
@@ -140,73 +140,73 @@
   --elevate-1: rgba(255,255,255, .03);
   --elevate-2: rgba(255,255,255, .07);
 
-  /* Deep forest green-blue night background */
-  --background: 160 35% 8%;
+  /* Deep professional dark background */
+  --background: 222 47% 11%;
 
-  --foreground: 120 25% 92%;
+  --foreground: 210 40% 98%;
 
-  --border: 155 20% 22%;
+  --border: 217 33% 17%;
 
-  /* Slightly lighter cards with green tint */
-  --card: 155 30% 11%;
+  /* Elevated dark cards */
+  --card: 217 33% 17%;
 
-  --card-foreground: 120 25% 92%;
+  --card-foreground: 210 40% 98%;
 
-  --card-border: 155 25% 18%;
+  --card-border: 215 28% 22%;
 
-  --sidebar: 155 30% 10%;
+  --sidebar: 222 47% 11%;
 
-  --sidebar-foreground: 120 25% 92%;
+  --sidebar-foreground: 210 40% 98%;
 
-  --sidebar-border: 155 20% 20%;
+  --sidebar-border: 217 33% 17%;
 
-  /* Bright eco-green for primary */
-  --sidebar-primary: 145 70% 50%;
+  /* Bright electric blue for primary */
+  --sidebar-primary: 217 91% 60%;
 
-  --sidebar-primary-foreground: 160 35% 8%;
+  --sidebar-primary-foreground: 222 47% 11%;
 
-  --sidebar-accent: 155 25% 18%;
+  --sidebar-accent: 217 33% 17%;
 
-  --sidebar-accent-foreground: 120 25% 92%;
+  --sidebar-accent-foreground: 210 40% 98%;
 
-  --sidebar-ring: 145 70% 50%;
+  --sidebar-ring: 217 91% 60%;
 
-  --popover: 155 30% 12%;
+  --popover: 217 33% 17%;
 
-  --popover-foreground: 120 25% 92%;
+  --popover-foreground: 210 40% 98%;
 
-  --popover-border: 155 20% 24%;
+  --popover-border: 215 28% 22%;
 
-  /* Vibrant green primary */
-  --primary: 145 70% 50%;
+  /* Vibrant blue primary */
+  --primary: 217 91% 60%;
 
-  --primary-foreground: 160 35% 8%;
+  --primary-foreground: 222 47% 11%;
 
-  /* Deep teal secondary */
-  --secondary: 175 30% 20%;
+  /* Dark secondary */
+  --secondary: 217 33% 17%;
 
-  --secondary-foreground: 120 25% 92%;
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 155 20% 18%;
+  --muted: 217 33% 17%;
 
-  --muted-foreground: 120 15% 65%;
+  --muted-foreground: 215 20% 65%;
 
-  /* Warm solar accent for dark mode */
-  --accent: 35 85% 60%;
+  /* Vibrant green accent for dark mode */
+  --accent: 142 76% 36%;
 
-  --accent-foreground: 160 35% 8%;
+  --accent-foreground: 210 40% 98%;
 
-  --destructive: 0 72% 50%;
+  --destructive: 0 84% 60%;
 
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: 210 40% 98%;
 
-  --input: 155 20% 25%;
-  --ring: 145 70% 50%;
-  --chart-1: 145 70% 55%;
-  --chart-2: 75 65% 55%;
-  --chart-3: 35 85% 60%;
-  --chart-4: 195 75% 50%;
-  --chart-5: 280 55% 60%;
+  --input: 217 33% 17%;
+  --ring: 217 91% 60%;
+  --chart-1: 217 91% 60%;
+  --chart-2: 142 76% 36%;
+  --chart-3: 38 92% 50%;
+  --chart-4: 280 61% 50%;
+  --chart-5: 340 82% 52%;
 
   --shadow-2xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
   --shadow-xs: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
