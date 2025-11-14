@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Footprints, Grid3x3, ShoppingCart, Battery, Package } from "lucide-react";
+import { Footprints, Grid3x3, ShoppingCart, Battery, Package, Zap } from "lucide-react";
 
 export default function Products() {
   const scrollToContact = () => {
@@ -87,8 +87,14 @@ export default function Products() {
   const bundleBuyUrl = "https://portal.veinternational.org/buybuttons/us0110240/btn/shoe-insoles-power-bank-25/";
 
   return (
-    <section id="products" className="py-16 sm:py-24 lg:py-32 bg-muted/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" className="relative py-16 sm:py-24 lg:py-32 bg-muted/20 overflow-hidden">
+      <div className="absolute top-10 right-10 opacity-10">
+        <Zap className="h-32 w-32 text-primary" />
+      </div>
+      <div className="absolute bottom-20 left-20 opacity-10 rotate-45">
+        <Zap className="h-20 w-20 text-accent" />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
           <Badge
             variant="outline"

@@ -29,8 +29,14 @@ export default function TechnologyShowcase() {
   ];
 
   return (
-    <section id="technologies" className="py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="technologies" className="relative py-32 bg-background overflow-hidden">
+      <div className="absolute top-20 left-10 opacity-10 -rotate-12">
+        <Zap className="h-36 w-36 text-primary" />
+      </div>
+      <div className="absolute bottom-10 right-20 opacity-10 rotate-45">
+        <Zap className="h-24 w-24 text-accent" />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <Badge variant="outline" className="mb-6" data-testid="badge-technologies-title">
             Technologies Portfolio

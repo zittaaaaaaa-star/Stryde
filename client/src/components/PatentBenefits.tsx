@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Shield, Rocket, Users, TrendingUp, Lightbulb, Globe } from "lucide-react";
+import { Shield, Rocket, Users, TrendingUp, Lightbulb, Globe, Zap } from "lucide-react";
 
 export default function PatentBenefits() {
   const benefits = [
@@ -36,8 +36,14 @@ export default function PatentBenefits() {
   ];
 
   return (
-    <section id="benefits" className="py-32 bg-muted/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="benefits" className="relative py-32 bg-muted/20 overflow-hidden">
+      <div className="absolute top-16 right-16 opacity-10 rotate-12">
+        <Zap className="h-28 w-28 text-primary" />
+      </div>
+      <div className="absolute bottom-16 left-10 opacity-10 -rotate-45">
+        <Zap className="h-32 w-32 text-accent" />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <Badge variant="outline" className="mb-6" data-testid="badge-benefits-title">
             Why License
