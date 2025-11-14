@@ -250,11 +250,11 @@ export default function LicensingContact() {
                   <div>
                     <p className="font-medium mb-1">Phone</p>
                     <a
-                      href="tel:+17182589283"
+                      href="tel:+17183772871"
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       data-testid="link-phone"
                     >
-                      +1 (718) 258-9283
+                      +1 (718) 377-2871
                     </a>
                   </div>
                 </div>

@@ -51,7 +51,7 @@ export default function Products() {
         "Precision Fastener Assembly - Rigid yet flexible connection allowing controlled vertical movement between layers.",
       ],
       applications: "Smart Buildings • Public Spaces • High Traffic Areas",
-      buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-67/",
+      buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/hexagon-floor-tiles-solar-41/",
     },
     {
       id: "power-bank",
