@@ -8,31 +8,8 @@ export default function BrandNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
-  const scrollToSection = (id: string) => {
-    if (location !== "/") {
-      setLocation("/");
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-    setIsMenuOpen(false);
-  };
-
-  const handleProductsClick = () => {
-    setLocation("/products");
-    setIsMenuOpen(false);
-  };
-
-  const handleLogoClick = () => {
-    setLocation("/");
+  const navigateToPage = (path: string) => {
+    setLocation(path);
     setIsMenuOpen(false);
   };
 
@@ -41,7 +18,7 @@ export default function BrandNavigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <button 
-            onClick={handleLogoClick}
+            onClick={() => navigateToPage("/")}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity" 
             data-testid="brand-logo"
           >
@@ -57,38 +34,38 @@ export default function BrandNavigation() {
 
           <div className="hidden md:flex items-center gap-8">
             <button
-              onClick={handleProductsClick}
+              onClick={() => navigateToPage("/products")}
               className="text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-nav-products"
             >
               Products
             </button>
             <button
-              onClick={() => scrollToSection("technologies")}
+              onClick={() => navigateToPage("/technologies")}
               className="text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-nav-technologies"
             >
               Technologies
             </button>
             <button
-              onClick={() => scrollToSection("benefits")}
+              onClick={() => navigateToPage("/interactive")}
               className="text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-nav-benefits"
+              data-testid="button-nav-interactive"
             >
-              Licensing
+              Interactive
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => navigateToPage("/licensing")}
               className="text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-nav-contact"
+              data-testid="button-nav-licensing"
             >
-              Contact
+              Licensing
             </button>
             <Button
               size="sm"
               variant="secondary"
               className="bg-accent text-accent-foreground hover:bg-accent/90"
-              onClick={handleProductsClick}
+              onClick={() => navigateToPage("/products")}
               data-testid="button-nav-buy"
             >
               Buy
@@ -100,7 +77,7 @@ export default function BrandNavigation() {
               size="sm"
               variant="secondary"
               className="bg-accent text-accent-foreground hover:bg-accent/90"
-              onClick={handleProductsClick}
+              onClick={() => navigateToPage("/products")}
               data-testid="button-mobile-buy"
             >
               Buy
@@ -127,32 +104,32 @@ export default function BrandNavigation() {
             data-testid="mobile-menu"
           >
             <button
-              onClick={handleProductsClick}
+              onClick={() => navigateToPage("/products")}
               className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-mobile-products"
             >
               Products
             </button>
             <button
-              onClick={() => scrollToSection("technologies")}
+              onClick={() => navigateToPage("/technologies")}
               className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-mobile-technologies"
             >
               Technologies
             </button>
             <button
-              onClick={() => scrollToSection("benefits")}
+              onClick={() => navigateToPage("/interactive")}
               className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-mobile-benefits"
+              data-testid="button-mobile-interactive"
             >
-              Licensing
+              Interactive
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => navigateToPage("/licensing")}
               className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-mobile-contact"
+              data-testid="button-mobile-licensing"
             >
-              Contact
+              Licensing
             </button>
           </div>
         )}

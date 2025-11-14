@@ -2,10 +2,6 @@ import BrandNavigation from "@/components/BrandNavigation";
 import PatentHero from "@/components/PatentHero";
 import AboutUs from "@/components/AboutUs";
 import MeetTheTeam from "@/components/MeetTheTeam";
-import TechnologyShowcase from "@/components/TechnologyShowcase";
-import PavegenInteractive from "@/components/PavegenInteractive";
-import PatentBenefits from "@/components/PatentBenefits";
-import LicensingContact from "@/components/LicensingContact";
 import BrandFooter from "@/components/BrandFooter";
 
 export default function Home() {
@@ -15,10 +11,6 @@ export default function Home() {
       <PatentHero />
       <AboutUs />
       <MeetTheTeam />
-      <TechnologyShowcase />
-      <PavegenInteractive />
-      <PatentBenefits />
-      <LicensingContact />
       <BrandFooter />
     </div>
   );
