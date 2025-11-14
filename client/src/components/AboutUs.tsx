@@ -49,31 +49,6 @@ export default function AboutUs() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-card-border hover-elevate">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                <Zap className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2" data-testid="text-experience-years">10+</h3>
-              <p className="text-muted-foreground">Years of Experience</p>
-            </div>
-            
-            <div className="text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-card-border hover-elevate">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 mb-4">
-                <Zap className="h-6 w-6 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2" data-testid="text-patents-count">15+</h3>
-              <p className="text-muted-foreground">Patents Filed</p>
-            </div>
-            
-            <div className="text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-card-border hover-elevate">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                <Zap className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2" data-testid="text-countries-count">25+</h3>
-              <p className="text-muted-foreground">Countries Reached</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
