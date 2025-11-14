@@ -11,6 +11,7 @@ import InteractivePage from "@/pages/Interactive";
 import LicensingPage from "@/pages/Licensing";
 import NotFound from "@/pages/not-found";
 import AdminInquiries from "@/pages/AdminInquiries";
+import AdminTeam from "@/pages/AdminTeam";
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/interactive" component={InteractivePage} />
       <Route path="/licensing" component={LicensingPage} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
+      <Route path="/admin/team" component={AdminTeam} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,52 +1,20 @@
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Zap } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  initials: string;
+  image: string;
+}
 
 export default function MeetTheTeam() {
-  const team = [
-    {
-      name: "Alejandra Paredes",
-      role: "CEO",
-      initials: "AP",
-      image: ""
-    },
-    {
-      name: "Kailey Huang",
-      role: "CCO",
-      initials: "KH",
-      image: ""
-    },
-    {
-      name: "Nishat Tasnim",
-      role: "CHRO",
-      initials: "NT",
-      image: ""
-    },
-    {
-      name: "Elie Krugolets",
-      role: "COO",
-      initials: "EK",
-      image: ""
-    },
-    {
-      name: "Kasper Lu",
-      role: "CFO",
-      initials: "KL",
-      image: ""
-    },
-    {
-      name: "Arian Moula",
-      role: "CMO",
-      initials: "AM",
-      image: ""
-    },
-    {
-      name: "Salma Benzriouil",
-      role: "OM",
-      initials: "SB",
-      image: ""
-    }
-  ];
+  const { data: team = [] } = useQuery<TeamMember[]>({
+    queryKey: ["/api/team"],
+  });
 
   return (
     <section id="team" className="relative py-32 bg-background overflow-hidden">
@@ -79,14 +47,14 @@ export default function MeetTheTeam() {
               data-testid={`card-team-member-${index}`}
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-lg opacity-0 group-hover:opacity-20 transition-opacity blur" />
-              <div className="relative bg-card rounded-lg p-4 border border-card-border hover-elevate flex flex-col items-center text-center w-32">
+              <div className="relative bg-card rounded-lg p-4 border border-card-border hover-elevate flex flex-col items-center text-center w-36 h-44">
                 <Avatar className="h-16 w-16 mb-3 ring-2 ring-primary/20">
                   <AvatarImage src={member.image} alt={member.name} />
                   <AvatarFallback className="text-sm font-semibold bg-primary/10 text-primary">
                     {member.initials}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="text-sm font-semibold mb-1" data-testid={`text-member-name-${index}`}>
+                <h3 className="text-sm font-semibold mb-1 leading-tight" data-testid={`text-member-name-${index}`}>
                   {member.name}
                 </h3>
                 <p className="text-xs text-primary font-medium" data-testid={`text-member-role-${index}`}>
