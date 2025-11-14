@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import logoImage from "@assets/logo_1763158009536.png";
+import logoImage from "@assets/43d2d086-976b-47ad-804c-b7e3da482b90_1763159300245.png";
 
 export default function BrandNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
