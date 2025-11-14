@@ -34,6 +34,13 @@ export default function BrandNavigation() {
 
           <div className="hidden md:flex items-center gap-8">
             <button
+              onClick={() => navigateToPage("/")}
+              className="text-sm text-white/80 hover:text-white transition-colors"
+              data-testid="button-nav-home"
+            >
+              Home
+            </button>
+            <button
               onClick={() => navigateToPage("/products")}
               className="text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-nav-products"
@@ -103,6 +110,13 @@ export default function BrandNavigation() {
             className="md:hidden pb-4 pt-2 space-y-1"
             data-testid="mobile-menu"
           >
+            <button
+              onClick={() => navigateToPage("/")}
+              className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
+              data-testid="button-mobile-home"
+            >
+              Home
+            </button>
             <button
               onClick={() => navigateToPage("/products")}
               className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
