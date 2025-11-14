@@ -98,7 +98,6 @@ export default function MeetTheTeam() {
                   <Button
                     size="icon"
                     variant="ghost"
-                    className="h-8 w-8"
                     onClick={() => window.open(member.linkedin, '_blank')}
                     data-testid={`button-linkedin-${index}`}
                   >
@@ -107,7 +106,6 @@ export default function MeetTheTeam() {
                   <Button
                     size="icon"
                     variant="ghost"
-                    className="h-8 w-8"
                     onClick={() => window.location.href = `mailto:${member.email}`}
                     data-testid={`button-email-${index}`}
                   >
