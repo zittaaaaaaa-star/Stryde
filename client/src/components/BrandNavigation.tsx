@@ -41,13 +41,6 @@ export default function BrandNavigation() {
               Home
             </button>
             <button
-              onClick={() => navigateToPage("/about")}
-              className="text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-nav-about"
-            >
-              About
-            </button>
-            <button
               onClick={() => navigateToPage("/products")}
               className="text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-nav-products"
@@ -123,13 +116,6 @@ export default function BrandNavigation() {
               data-testid="button-mobile-home"
             >
               Home
-            </button>
-            <button
-              onClick={() => navigateToPage("/about")}
-              className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-mobile-about"
-            >
-              About
             </button>
             <button
               onClick={() => navigateToPage("/products")}
