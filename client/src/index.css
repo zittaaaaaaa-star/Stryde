@@ -35,8 +35,8 @@
 
   --sidebar-border: 214 32% 91%;
 
-  /* Modern electric blue primary */
-  --sidebar-primary: 217 91% 60%;
+  /* STRYDE Navy Blue Primary */
+  --sidebar-primary: 210 100% 15%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
@@ -44,7 +44,7 @@
 
   --sidebar-accent-foreground: 222 47% 11%;
 
-  --sidebar-ring: 217 91% 60%;
+  --sidebar-ring: 38 100% 60%;
 
   --popover: 0 0% 100%;
 
@@ -52,8 +52,8 @@
 
   --popover-border: 214 32% 91%;
 
-  /* Electric blue for primary actions */
-  --primary: 217 91% 60%;
+  /* STRYDE Navy Blue for primary actions */
+  --primary: 210 100% 15%;
 
   --primary-foreground: 0 0% 100%;
 
@@ -67,22 +67,22 @@
 
   --muted-foreground: 215 16% 47%;
 
-  /* Vibrant accent color */
-  --accent: 142 76% 36%;
+  /* STRYDE Orange accent color */
+  --accent: 38 100% 60%;
 
-  --accent-foreground: 0 0% 100%;
+  --accent-foreground: 210 100% 15%;
 
   --destructive: 0 84% 60%;
 
   --destructive-foreground: 0 0% 100%;
 
   --input: 214 32% 91%;
-  --ring: 217 91% 60%;
-  --chart-1: 217 91% 60%;
-  --chart-2: 142 76% 36%;
-  --chart-3: 38 92% 50%;
-  --chart-4: 280 61% 50%;
-  --chart-5: 340 82% 52%;
+  --ring: 38 100% 60%;
+  --chart-1: 210 100% 15%;
+  --chart-2: 38 100% 60%;
+  --chart-3: 0 0% 100%;
+  --chart-4: 215 16% 47%;
+  --chart-5: 210 40% 96%;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: "New York", Georgia, serif;
@@ -160,16 +160,16 @@
 
   --sidebar-border: 217 33% 17%;
 
-  /* Bright electric blue for primary */
-  --sidebar-primary: 217 91% 60%;
+  /* STRYDE Navy Blue for primary */
+  --sidebar-primary: 210 100% 15%;
 
-  --sidebar-primary-foreground: 222 47% 11%;
+  --sidebar-primary-foreground: 0 0% 100%;
 
   --sidebar-accent: 217 33% 17%;
 
   --sidebar-accent-foreground: 210 40% 98%;
 
-  --sidebar-ring: 217 91% 60%;
+  --sidebar-ring: 38 100% 60%;
 
   --popover: 217 33% 17%;
 
@@ -177,10 +177,10 @@
 
   --popover-border: 215 28% 22%;
 
-  /* Vibrant blue primary */
-  --primary: 217 91% 60%;
+  /* STRYDE Navy Blue primary */
+  --primary: 210 100% 15%;
 
-  --primary-foreground: 222 47% 11%;
+  --primary-foreground: 0 0% 100%;
 
   /* Dark secondary */
   --secondary: 217 33% 17%;
@@ -191,22 +191,22 @@
 
   --muted-foreground: 215 20% 65%;
 
-  /* Vibrant green accent for dark mode */
-  --accent: 142 76% 36%;
+  /* STRYDE Orange accent for dark mode */
+  --accent: 38 100% 60%;
 
-  --accent-foreground: 210 40% 98%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
 
   --destructive-foreground: 210 40% 98%;
 
   --input: 217 33% 17%;
-  --ring: 217 91% 60%;
-  --chart-1: 217 91% 60%;
-  --chart-2: 142 76% 36%;
-  --chart-3: 38 92% 50%;
-  --chart-4: 280 61% 50%;
-  --chart-5: 340 82% 52%;
+  --ring: 38 100% 60%;
+  --chart-1: 210 100% 15%;
+  --chart-2: 38 100% 60%;
+  --chart-3: 0 0% 100%;
+  --chart-4: 215 16% 47%;
+  --chart-5: 210 40% 96%;
 
   --shadow-2xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
   --shadow-xs: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
