@@ -82,6 +82,20 @@ export default function Products() {
       applications: "Athletes • Daily Wear • Medical",
       buyUrl: "https://portal.veinternational.org/buybuttons/us0110240/btn/shoe-insoles-69/",
     },
+    {
+      id: "holder",
+      name: "Holder",
+      icon: Package,
+      description:
+        "Advanced holder that generates power from every step while providing exceptional comfort.",
+      features: [
+        "Antimicrobial breathable mesh top layer",
+        "Graphene-infused PU foam for heat conduction",
+        "Hydrophobic coating - sweat resistant & easy to clean",
+      ],
+      applications: "Athletes • Daily Wear • Medical",
+      buyUrl: "#",
+    },
   ];
 
   const bundleBuyUrl = "https://portal.veinternational.org/buybuttons/us0110240/btn/shoe-insoles-power-bank-25/";

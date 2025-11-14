@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 import { useState } from "react";
 
 export default function BrandNavigation() {
@@ -17,9 +17,14 @@ export default function BrandNavigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-emerald-500/10 via-yellow-500/10 to-teal-500/10 backdrop-blur-xl border-b border-border/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
-          <span className="text-xl font-semibold" data-testid="text-brand-name">
-            STRYDE
-          </span>
+          <div className="flex items-center gap-2" data-testid="brand-logo">
+            <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+              <Zap className="h-5 w-5 text-primary" />
+            </div>
+            <span className="text-xl font-semibold" data-testid="text-brand-name">
+              STRYDE
+            </span>
+          </div>
 
           <div className="hidden md:flex items-center gap-8">
             <button

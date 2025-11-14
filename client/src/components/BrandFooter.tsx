@@ -1,3 +1,5 @@
+import { Zap } from "lucide-react";
+
 export default function BrandFooter() {
   const currentYear = new Date().getFullYear();
 
@@ -79,9 +81,14 @@ export default function BrandFooter() {
           <p className="text-sm text-muted-foreground" data-testid="text-copyright">
             © {currentYear} Stryde. All rights reserved.
           </p>
-          <p className="text-sm font-semibold text-foreground">
-            Stryde
-          </p>
+          <div className="flex items-center gap-2">
+            <div className="h-6 w-6 rounded-md bg-primary/10 flex items-center justify-center">
+              <Zap className="h-4 w-4 text-primary" />
+            </div>
+            <p className="text-sm font-semibold text-foreground">
+              Stryde
+            </p>
+          </div>
         </div>
       </div>
     </footer>
