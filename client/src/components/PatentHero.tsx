@@ -47,7 +47,7 @@ export default function PatentHero() {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              onClick={() => scrollToSection("products")}
+              onClick={() => window.location.href = "/products"}
               className="text-base px-8"
               data-testid="button-hero-products"
             >
@@ -57,7 +57,7 @@ export default function PatentHero() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => window.location.href = "/licensing"}
               className="text-base px-8"
               data-testid="button-hero-license"
             >
