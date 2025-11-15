@@ -57,7 +57,7 @@ export default function PavegenInteractive() {
   return (
     <section className="relative py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.08),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,46,76,0.08),transparent_70%)]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-16">
@@ -109,7 +109,7 @@ export default function PavegenInteractive() {
 
             <div className="flex-shrink-0 mx-12">
               <div className={`bolt-container ${boltActive ? 'bolt-active' : ''}`}>
-                <Zap className="w-32 h-32 text-emerald-500" strokeWidth={2} fill="currentColor" />
+                <Zap className="w-32 h-32" style={{ color: 'hsl(210, 100%, 15%)' }} strokeWidth={2} fill="currentColor" />
                 <div className="bolt-glow" />
               </div>
             </div>
@@ -229,7 +229,7 @@ export default function PavegenInteractive() {
         .bolt-glow {
           position: absolute;
           inset: -30px;
-          background: radial-gradient(circle, rgba(34, 197, 94, 0.6), transparent 60%);
+          background: radial-gradient(circle, rgba(0, 46, 76, 0.6), transparent 60%);
           opacity: 0;
           filter: blur(30px);
           transition: opacity 0.3s;
@@ -254,20 +254,20 @@ export default function PavegenInteractive() {
         }
 
         .feature-box:hover {
-          border-color: rgba(34, 197, 94, 0.4);
+          border-color: rgba(0, 46, 76, 0.4);
         }
 
         .feature-active {
-          background: linear-gradient(135deg, hsl(145 70% 45%), hsl(145 65% 50%)) !important;
-          border-color: hsl(145 70% 50%) !important;
+          background: linear-gradient(135deg, hsl(210 100% 15%), hsl(210 100% 20%)) !important;
+          border-color: hsl(210 100% 15%) !important;
           transform: scale(1.05);
-          box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+          box-shadow: 0 0 30px rgba(0, 46, 76, 0.6);
         }
 
         .feature-glow {
           position: absolute;
           inset: -4px;
-          background: rgba(34, 197, 94, 0.3);
+          background: rgba(0, 46, 76, 0.3);
           border-radius: 14px;
           opacity: 0;
           filter: blur(12px);
@@ -281,10 +281,10 @@ export default function PavegenInteractive() {
         }
 
         .feature-icon {
-          background: rgba(34, 197, 94, 0.15);
+          background: rgba(0, 46, 76, 0.15);
           padding: 12px;
           border-radius: 10px;
-          color: rgb(34, 197, 94);
+          color: rgb(0, 46, 76);
           transition: all 0.3s;
         }
 
@@ -313,9 +313,9 @@ export default function PavegenInteractive() {
         }
 
         @keyframes line-glow {
-          0% { stroke-width: 2; filter: drop-shadow(0 0 0 rgba(34, 197, 94, 0)); }
-          50% { stroke-width: 3; filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.8)); }
-          100% { stroke-width: 2; filter: drop-shadow(0 0 0 rgba(34, 197, 94, 0)); }
+          0% { stroke-width: 2; filter: drop-shadow(0 0 0 rgba(0, 46, 76, 0)); }
+          50% { stroke-width: 3; filter: drop-shadow(0 0 8px rgba(0, 46, 76, 0.8)); }
+          100% { stroke-width: 2; filter: drop-shadow(0 0 0 rgba(0, 46, 76, 0)); }
         }
       `}</style>
     </section>

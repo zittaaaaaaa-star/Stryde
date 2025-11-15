@@ -55,13 +55,6 @@ export default function BrandNavigation() {
               Technologies
             </button>
             <button
-              onClick={() => navigateToPage("/interactive")}
-              className="text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-nav-interactive"
-            >
-              Interactive
-            </button>
-            <button
               onClick={() => navigateToPage("/licensing")}
               className="text-sm text-white/80 hover:text-white transition-colors"
               data-testid="button-nav-licensing"
@@ -130,13 +123,6 @@ export default function BrandNavigation() {
               data-testid="button-mobile-technologies"
             >
               Technologies
-            </button>
-            <button
-              onClick={() => navigateToPage("/interactive")}
-              className="block w-full text-left py-3 text-sm text-white/80 hover:text-white transition-colors"
-              data-testid="button-mobile-interactive"
-            >
-              Interactive
             </button>
             <button
               onClick={() => navigateToPage("/licensing")}

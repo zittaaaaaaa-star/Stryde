@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, TrendingUp } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function PatentHero() {
+  const [, setLocation] = useLocation();
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -47,7 +50,7 @@ export default function PatentHero() {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              onClick={() => window.location.href = "/products"}
+              onClick={() => setLocation("/products")}
               className="text-base px-8"
               data-testid="button-hero-products"
             >
@@ -57,7 +60,7 @@ export default function PatentHero() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.location.href = "/licensing"}
+              onClick={() => setLocation("/licensing")}
               className="text-base px-8"
               data-testid="button-hero-license"
             >
