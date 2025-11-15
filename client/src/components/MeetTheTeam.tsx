@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
     initials: "KH",
   },
   {
-    name: "Nishat Tasnim",
+    name: "Nisha Tasnim",
     role: "CHRO",
     initials: "NT",
   },
