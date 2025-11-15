@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Zap, Users, GraduationCap, BarChart3 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 export default function PavegenInteractive() {
+  const [, setLocation] = useLocation();
   const [isAnimating, setIsAnimating] = useState(false);
   const [boltActive, setBoltActive] = useState(false);
   const [activeFeatures, setActiveFeatures] = useState<Set<number>>(new Set());
@@ -64,12 +67,22 @@ export default function PavegenInteractive() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
             Engage with the power of footsteps
           </h2>
-          <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-black">
+          <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-black mb-8">
             STRYDE smart tiles convert human footsteps into electricity. Harness that energy to{" "}
             <span className="text-black font-medium">capture attention</span>,{" "}
             <span className="text-black font-medium">drive footfall</span> and{" "}
             <span className="text-black font-medium">share your message</span>.
           </p>
+          <div className="flex justify-center">
+            <Button
+              size="lg"
+              onClick={() => setLocation("/products")}
+              className="text-base px-8"
+              data-testid="button-interactive-buy"
+            >
+              Buy Now
+            </Button>
+          </div>
         </div>
 
         <div className="relative max-w-6xl mx-auto h-[500px] flex items-center justify-center">
