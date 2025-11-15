@@ -254,20 +254,20 @@ export default function PavegenInteractive() {
         }
 
         .feature-box:hover {
-          border-color: rgba(0, 46, 76, 0.4);
+          border-color: rgba(250, 204, 21, 0.4);
         }
 
         .feature-active {
-          background: linear-gradient(135deg, hsl(210 100% 15%), hsl(210 100% 20%)) !important;
-          border-color: hsl(210 100% 15%) !important;
+          background: linear-gradient(135deg, rgb(250, 204, 21), rgb(253, 224, 71)) !important;
+          border-color: rgb(250, 204, 21) !important;
           transform: scale(1.05);
-          box-shadow: 0 0 30px rgba(0, 46, 76, 0.6);
+          box-shadow: 0 0 30px rgba(250, 204, 21, 0.6);
         }
 
         .feature-glow {
           position: absolute;
           inset: -4px;
-          background: rgba(0, 46, 76, 0.3);
+          background: rgba(250, 204, 21, 0.3);
           border-radius: 14px;
           opacity: 0;
           filter: blur(12px);
@@ -289,12 +289,12 @@ export default function PavegenInteractive() {
         }
 
         .feature-active .feature-icon {
-          background: rgba(255, 255, 255, 0.2);
-          color: rgb(250, 204, 21);
+          background: rgba(255, 255, 255, 0.3);
+          color: rgb(0, 46, 76);
         }
 
         .feature-active h3 {
-          color: rgb(250, 204, 21) !important;
+          color: rgb(0, 46, 76) !important;
         }
 
         .line-pulse {
