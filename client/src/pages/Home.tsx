@@ -11,8 +11,8 @@ export default function Home() {
       <BrandNavigation />
       <PatentHero />
       <AboutUs />
-      <MeetTheTeam />
       <PavegenInteractive />
+      <MeetTheTeam />
       <BrandFooter />
     </div>
   );
