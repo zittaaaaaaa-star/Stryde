@@ -22,7 +22,7 @@ export default function EngagePowerFootsteps() {
             Engage with the power of footsteps
           </h2>
           <p className="text-xl text-white/90 leading-relaxed mb-12" data-testid="text-engage-description">
-            STRYDE smart tiles convert human footsteps into electricity. Harness that energy to{" "}
+            STRYDE tiles convert human footsteps into electricity. Harness that energy to{" "}
             <span className="text-accent font-medium">capture attention</span>,{" "}
             <span className="text-accent font-medium">drive footfall</span> and{" "}
             <span className="text-accent font-medium">share your message</span>.
