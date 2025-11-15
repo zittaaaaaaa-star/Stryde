@@ -11,9 +11,9 @@ export default function PatentHero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-yellow-50 to-teal-50 dark:from-emerald-950 dark:via-teal-950 dark:to-cyan-950">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(245,158,11,0.05),transparent_50%)]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
