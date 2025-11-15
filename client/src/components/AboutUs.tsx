@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Zap } from "lucide-react";
+import elevatorPitchVideo from "@assets/IMG_0507_1763173585760.mp4";
 
 export default function AboutUs() {
   return (
@@ -26,27 +27,16 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className="relative rounded-lg overflow-hidden bg-muted/50 backdrop-blur-sm border border-border shadow-lg mb-12">
-            <div className="aspect-video flex items-center justify-center relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
-              <div className="relative z-10 text-center p-8">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-background/80 backdrop-blur-sm border-2 border-primary mb-6 group-hover:scale-110 transition-transform">
-                  <svg
-                    className="w-10 h-10 text-primary"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-lg font-medium text-muted-foreground" data-testid="text-video-placeholder">
-                  Elevator Pitch Video
-                </p>
-                <p className="text-sm text-muted-foreground/70 mt-2">
-                  Video placeholder - Update with your YouTube or Vimeo embed
-                </p>
-              </div>
-            </div>
+          <div className="relative rounded-lg overflow-hidden shadow-2xl border border-border/50 mb-12">
+            <video 
+              className="w-full h-full object-cover"
+              controls
+              preload="metadata"
+              data-testid="video-elevator-pitch"
+            >
+              <source src={elevatorPitchVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
 
         </div>

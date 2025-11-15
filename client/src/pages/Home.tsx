@@ -2,7 +2,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import PatentHero from "@/components/PatentHero";
 import AboutUs from "@/components/AboutUs";
 import MeetTheTeam from "@/components/MeetTheTeam";
-import EngagePowerFootsteps from "@/components/EngagePowerFootsteps";
+import PavegenInteractive from "@/components/PavegenInteractive";
 import BrandFooter from "@/components/BrandFooter";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <PatentHero />
       <AboutUs />
       <MeetTheTeam />
-      <EngagePowerFootsteps />
+      <PavegenInteractive />
       <BrandFooter />
     </div>
   );
