@@ -41,7 +41,7 @@ export default function PavegenInteractive() {
       setTimeout(() => {
         features.forEach((_, index) => {
           setTimeout(() => {
-            setActiveFeatures(prev => new Set([...prev, index]));
+            setActiveFeatures(prev => new Set([...Array.from(prev), index]));
           }, index * 150);
         });
 
