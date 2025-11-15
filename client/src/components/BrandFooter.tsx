@@ -12,7 +12,7 @@ export default function BrandFooter() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <a href="#products" className="hover:text-foreground transition-colors" data-testid="link-footer-commercial">
-                  Commercial Series
+                  Commercial Serie
                 </a>
               </li>
               <li>
