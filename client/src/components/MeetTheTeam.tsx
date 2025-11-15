@@ -32,7 +32,7 @@ export default function MeetTheTeam() {
             Our Team
           </Badge>
           <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight" data-testid="heading-team">
-            Meet the Team
+            Meet Our Team
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-team-description">
             A diverse team of experts committed to revolutionizing sustainable energy
