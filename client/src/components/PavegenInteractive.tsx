@@ -61,7 +61,7 @@ export default function PavegenInteractive() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-yellow-500">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
             Engage with the power of footsteps
           </h2>
           <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-black">
