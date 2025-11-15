@@ -1,20 +1,54 @@
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Zap } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
 
 interface TeamMember {
-  id: number;
   name: string;
   role: string;
   initials: string;
-  image: string;
+  image?: string;
 }
 
+const teamMembers: TeamMember[] = [
+  {
+    name: "Alejandra Paredes",
+    role: "CEO",
+    initials: "AP",
+  },
+  {
+    name: "Kailey Huang",
+    role: "CCO",
+    initials: "KH",
+  },
+  {
+    name: "Nishat Tasnim",
+    role: "CHRO",
+    initials: "NT",
+  },
+  {
+    name: "Elie Krugolets",
+    role: "COO",
+    initials: "EK",
+  },
+  {
+    name: "Kasper Lu",
+    role: "CFO",
+    initials: "KL",
+  },
+  {
+    name: "Arian Moula",
+    role: "CMO",
+    initials: "AM",
+  },
+  {
+    name: "Salma Benzriouil",
+    role: "OM",
+    initials: "SB",
+  },
+];
+
 export default function MeetTheTeam() {
-  const { data: team = [] } = useQuery<TeamMember[]>({
-    queryKey: ["/api/team"],
-  });
+  const team = teamMembers;
 
   return (
     <section id="team" className="relative py-32 bg-background overflow-hidden">
