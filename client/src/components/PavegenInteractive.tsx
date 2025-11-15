@@ -109,7 +109,7 @@ export default function PavegenInteractive() {
 
             <div className="flex-shrink-0 mx-12">
               <div className={`bolt-container ${boltActive ? 'bolt-active' : ''}`}>
-                <Zap className="w-32 h-32" style={{ color: 'hsl(210, 100%, 15%)' }} strokeWidth={2} fill="currentColor" />
+                <Zap className="w-32 h-32 text-yellow-400" strokeWidth={2} fill="currentColor" />
                 <div className="bolt-glow" />
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function PavegenInteractive() {
         }
 
         .tile-label span {
-          color: black;
+          color: rgb(250, 204, 21);
           font-size: 14px;
           font-weight: 500;
         }
@@ -229,7 +229,7 @@ export default function PavegenInteractive() {
         .bolt-glow {
           position: absolute;
           inset: -30px;
-          background: radial-gradient(circle, rgba(0, 46, 76, 0.6), transparent 60%);
+          background: radial-gradient(circle, rgba(250, 204, 21, 0.6), transparent 60%);
           opacity: 0;
           filter: blur(30px);
           transition: opacity 0.3s;
