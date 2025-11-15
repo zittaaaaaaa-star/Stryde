@@ -8,6 +8,7 @@ export default function PavegenInteractive() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [boltActive, setBoltActive] = useState(false);
   const [activeFeatures, setActiveFeatures] = useState<Set<number>>(new Set());
+  const [showButton, setShowButton] = useState(false);
 
   const features = [
     {
@@ -52,6 +53,7 @@ export default function PavegenInteractive() {
           setIsAnimating(false);
           setBoltActive(false);
           setActiveFeatures(new Set());
+          setShowButton(true);
         }, 2500);
       }, 600);
     }, 800);
@@ -73,16 +75,18 @@ export default function PavegenInteractive() {
             <span className="text-black font-medium">drive footfall</span> and{" "}
             <span className="text-black font-medium">share your message</span>.
           </p>
-          <div className="flex justify-center">
-            <Button
-              size="lg"
-              onClick={() => setLocation("/products")}
-              className="text-base px-8"
-              data-testid="button-interactive-buy"
-            >
-              Buy Now
-            </Button>
-          </div>
+          {showButton && (
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                onClick={() => setLocation("/products")}
+                className="text-base px-8"
+                data-testid="button-interactive-buy"
+              >
+                Buy Now
+              </Button>
+            </div>
+          )}
         </div>
 
         <div className="relative max-w-6xl mx-auto h-[500px] flex items-center justify-center">
