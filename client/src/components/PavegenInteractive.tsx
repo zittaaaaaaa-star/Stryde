@@ -290,7 +290,11 @@ export default function PavegenInteractive() {
 
         .feature-active .feature-icon {
           background: rgba(255, 255, 255, 0.2);
-          color: white;
+          color: rgb(250, 204, 21);
+        }
+
+        .feature-active h3 {
+          color: rgb(250, 204, 21) !important;
         }
 
         .line-pulse {
