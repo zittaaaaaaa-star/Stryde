@@ -88,6 +88,7 @@
   --font-serif: "New York", Georgia, serif;
   --font-mono: "SF Mono", Menlo, Monaco, monospace;
   --radius: .75rem; /* 12px - Apple uses slightly larger radius */
+  --background-gradient: linear-gradient(to bottom, hsl(220, 40%, 88%), hsl(210, 50%, 96%));
   --shadow-2xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   --shadow-xs: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
   --shadow-sm: 0px 2px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -217,6 +218,8 @@
   --shadow-xl: 0px 20px 40px -8px rgba(0, 0, 0, 0.6), 0px 32px 48px -12px rgba(0, 0, 0, 0.7);
   --shadow-2xl: 0px 32px 64px -12px rgba(0, 0, 0, 0.8);
 
+  --background-gradient: linear-gradient(to bottom, hsl(220, 35%, 18%), hsl(210, 30%, 25%));
+
   /* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -252,7 +255,10 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased text-foreground;
+    background-color: hsl(var(--background));
+    background-image: var(--background-gradient);
+    background-attachment: fixed;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
